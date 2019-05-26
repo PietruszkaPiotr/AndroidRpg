@@ -189,7 +189,7 @@ PrefabInstance:
     - target: {fileID: 198251025729180936, guid: 22d6eca7f0c9598449f2566e043ab643,
         type: 3}
       propertyPath: InitialModule.maxNumParticles
-      value: 100
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 198427892058995556, guid: 22d6eca7f0c9598449f2566e043ab643,
         type: 3}
@@ -1073,7 +1073,7 @@ PrefabInstance:
     - target: {fileID: 198251025729180936, guid: 22d6eca7f0c9598449f2566e043ab643,
         type: 3}
       propertyPath: InitialModule.maxNumParticles
-      value: 100
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 198427892058995556, guid: 22d6eca7f0c9598449f2566e043ab643,
         type: 3}
@@ -3873,7 +3873,7 @@ PrefabInstance:
     - target: {fileID: 198251025729180936, guid: 22d6eca7f0c9598449f2566e043ab643,
         type: 3}
       propertyPath: InitialModule.maxNumParticles
-      value: 100
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 198427892058995556, guid: 22d6eca7f0c9598449f2566e043ab643,
         type: 3}
@@ -5686,7 +5686,7 @@ PrefabInstance:
     - target: {fileID: 198251025729180936, guid: 22d6eca7f0c9598449f2566e043ab643,
         type: 3}
       propertyPath: InitialModule.maxNumParticles
-      value: 100
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 198427892058995556, guid: 22d6eca7f0c9598449f2566e043ab643,
         type: 3}
@@ -7360,11 +7360,6 @@ PrefabInstance:
         type: 3}
       propertyPath: InitialModule.maxNumParticles
       value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 198502202927481616, guid: 43cbaea1607bc9248aedcee481f27809,
-        type: 3}
-      propertyPath: InitialModule.maxNumParticles
-      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 43cbaea1607bc9248aedcee481f27809, type: 3}
@@ -10229,7 +10224,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   xx: 1920
-  yy: 1080
+  yy: 1050
   cam: {fileID: 1728564190}
 --- !u!114 &1728564195
 MonoBehaviour:
@@ -10668,7 +10663,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1752311492}
-  cam: {fileID: 1728564190}
 --- !u!114 &1794459144
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11963,12 +11957,12 @@ PrefabInstance:
     - target: {fileID: 3325629609108131018, guid: dbe7c73c9fd1eaf45948f7c5a36bf7eb,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -11.02
+      value: -11
       objectReference: {fileID: 0}
     - target: {fileID: 3325629609108131018, guid: dbe7c73c9fd1eaf45948f7c5a36bf7eb,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.738
+      value: -4.696
       objectReference: {fileID: 0}
     - target: {fileID: 3325629609108131018, guid: dbe7c73c9fd1eaf45948f7c5a36bf7eb,
         type: 3}
@@ -12030,11 +12024,6 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 1665578698}
-<<<<<<< Updated upstream
-=======
-<<<<<<< Updated upstream
-=======
->>>>>>> Stashed changes
     - target: {fileID: 5815710505347538399, guid: dbe7c73c9fd1eaf45948f7c5a36bf7eb,
         type: 3}
       propertyPath: m_LocalRotation.x
