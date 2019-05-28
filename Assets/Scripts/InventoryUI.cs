@@ -6,9 +6,8 @@ public class InventoryUI : MonoBehaviour
     public GameObject inventoryUI;
     public GameObject inventoryButton;
     public GameObject attackButton;
-    public GameObject fireballButton;
+    public GameObject[] spellButton;
     public GameObject equipmentUI;
-    public GameObject equipmentButton;
     Inventory inventory;
     EquipmentManager equipment;
     InventorySlot[] slots;
@@ -57,24 +56,20 @@ public class InventoryUI : MonoBehaviour
 
     public void ShowInventory()
     {
+        for(int i=0;i<4;i++) {
+            spellButton[i].SetActive(false);
+        }
         inventoryUI.SetActive(true);
         equipmentUI.SetActive(true);
         attackButton.SetActive(false);
-        fireballButton.SetActive(false);
-        equipmentButton.SetActive(true);
-        equipmentUI.SetActive(false);
-    }
-    public void ShowEquipment()
-    {
-        equipmentUI.SetActive(true);
     }
     void Hide()
     {
+        for (int i = 0; i < 4; i++) {
+            spellButton[i].SetActive(true);
+        }
         inventoryUI.SetActive(false);
-        equipmentUI.SetActive(false);
         attackButton.SetActive(true);
-        fireballButton.SetActive(true);
-        equipmentButton.SetActive(false);
         equipmentUI.SetActive(false);
     }
 }
