@@ -5,8 +5,18 @@ public class CharacterStats : MonoBehaviour
     public int maxHealth = 100;
     public int currentHealth { get; private set; }
 
-    public Stat damage;
+    public Stat minDamage;
+    public Stat maxDamage;
+    public Stat magicDamage;
     public Stat armour;
+    public Stat magicResist;
+
+    public Stat strenght;
+    public Stat agility;
+    public Stat constitution;
+    public Stat intelligence;
+    public Stat wisdom;
+    public Stat charisma;
 
     public event System.Action<int, int> OnHealthChanged;
 

@@ -9,8 +9,15 @@ public class Equipment : Item
     public SkinnedMeshRenderer mesh;
     public EquipmentMeshRegion[] coveredMeshRegions;
 
-    public int armorModifier;
     public int damageModifier;
+    public int armorModifier;
+    public int magicDamageModifier;
+    public int strenghtModifier;
+    public int agilityModifier;
+    public int constitutionModifier;
+    public int intelligenceModifier;
+    public int wisdomModifier;
+    public int charismaModifier;
 
     public override void Use()
     {
