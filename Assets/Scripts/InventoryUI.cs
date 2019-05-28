@@ -58,6 +58,7 @@ public class InventoryUI : MonoBehaviour
     public void ShowInventory()
     {
         inventoryUI.SetActive(true);
+        equipmentUI.SetActive(true);
         attackButton.SetActive(false);
         fireballButton.SetActive(false);
         equipmentButton.SetActive(true);
@@ -70,6 +71,7 @@ public class InventoryUI : MonoBehaviour
     void Hide()
     {
         inventoryUI.SetActive(false);
+        equipmentUI.SetActive(false);
         attackButton.SetActive(true);
         fireballButton.SetActive(true);
         equipmentButton.SetActive(false);
