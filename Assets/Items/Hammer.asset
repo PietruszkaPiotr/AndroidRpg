@@ -27,3 +27,4 @@ MonoBehaviour:
   intelligenceModifier: 0
   wisdomModifier: 0
   charismaModifier: 0
+  range: 0

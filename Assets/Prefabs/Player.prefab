@@ -126,7 +126,6 @@ GameObject:
   - component: {fileID: 3325629609108131016}
   - component: {fileID: 3325629609108131017}
   - component: {fileID: 3325629609108131013}
-  - component: {fileID: 3325629609108131010}
   - component: {fileID: 3325629609108131009}
   - component: {fileID: 3325629609108131012}
   - component: {fileID: 3325629609108131008}
@@ -253,24 +252,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 418480c8bfecfbf42985572a9059bf1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &3325629609108131010
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3325629609108131019}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adeb6162657b81a4b9a4c864359e8bdd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attackSpeed: 1
-  attackDelay: 0.6
-  fireballCooldown: 0
-  fireballDelay: 10
-  fireballRange: 10
-  controller: {fileID: 3325629609108131017}
 --- !u!114 &3325629609108131009
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -284,7 +265,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
-  damage:
+  minDamage:
+    baseValue: 0
+  maxDamage:
     baseValue: 0
   magicDamage:
     baseValue: 0
@@ -320,6 +303,7 @@ MonoBehaviour:
     type: 3}
   defaultAttackAnimSet:
   - {fileID: 2353680664591731088, guid: 73be9633513854604baae3aa06041436, type: 3}
+  combat: {fileID: 959349770809055810}
   overrideController: {fileID: 0}
   weaponAnimations:
   - weapon: {fileID: 11400000, guid: 5af71127c2cb34b49a98ace71b44c60c, type: 2}
@@ -354,11 +338,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackSpeed: 1
   attackDelay: 0.6
+  playerStats: {fileID: 3325629609108131009}
   fireballCooldown: 0
   fireballDelay: 10
   fireballRange: 10
   controller: {fileID: 3325629609108131017}
-  playerStats: {fileID: 3325629609108131009}
 --- !u!1 &3562535619353693914
 GameObject:
   m_ObjectHideFlags: 0
@@ -852,7 +836,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b8bccf6d5fbf5442b694fa0de7ab20a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  combat: {fileID: 3325629609108131010}
+  combat: {fileID: 0}
 --- !u!1 &5815710505347105179
 GameObject:
   m_ObjectHideFlags: 0

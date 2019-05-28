@@ -19,6 +19,9 @@ public class Equipment : Item
     public int wisdomModifier;
     public int charismaModifier;
 
+    //0 melee, -1 not a weapon
+    public int range = -1;
+
     public override void Use()
     {
         base.Use();
