@@ -10,14 +10,14 @@ public class CharacterAnimator : MonoBehaviour
     const float locomotionAnimationSmoothTime = .1f;
     protected Animator animator;
     NavMeshAgent agent;
-    protected CharacterCombat combat;
+    public CharacterCombat combat;
     public AnimatorOverrideController overrideController;
     // Start is called before the first frame update
     protected virtual void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponentInChildren<Animator>();
-        combat = GetComponent<CharacterCombat>();
+        //combat = GetComponent<CharacterCombat>();
         if(overrideController== null)
         {
             overrideController = new AnimatorOverrideController(animator.runtimeAnimatorController);

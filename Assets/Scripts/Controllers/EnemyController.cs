@@ -30,7 +30,7 @@ public class EnemyController : MonoBehaviour
         {
             agent.SetDestination(target.position);
 
-            if(distance <= agent.stoppingDistance)
+            if(distance <= agent.stoppingDistance+0.1)
             {
                 if(stats != null)
                 {

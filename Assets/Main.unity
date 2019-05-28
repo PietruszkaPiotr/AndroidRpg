@@ -2128,10 +2128,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackSpeed: 0.7
   attackDelay: 0.6
-  fireballCooldown: 0
-  fireballDelay: 10
-  fireballRange: 10
-  controller: {fileID: 0}
 --- !u!114 &237921414
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2159,10 +2155,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 20
-  damage:
+  minDamage:
+    baseValue: 0
+  maxDamage:
     baseValue: 5
+  magicDamage:
+    baseValue: 0
   armour:
     baseValue: 3
+  magicResist:
+    baseValue: 0
+  strenght:
+    baseValue: 0
+  agility:
+    baseValue: 0
+  constitution:
+    baseValue: 0
+  intelligence:
+    baseValue: 0
+  wisdom:
+    baseValue: 0
+  charisma:
+    baseValue: 0
 --- !u!114 &237921416
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2195,6 +2209,7 @@ MonoBehaviour:
   defaultAttackAnimSet:
   - {fileID: -2516013265382948196, guid: 2df14f11212f5374eaa7c439b9f335c5, type: 3}
   - {fileID: 989712619511347958, guid: 2df14f11212f5374eaa7c439b9f335c5, type: 3}
+  combat: {fileID: 237921413}
   overrideController: {fileID: 22100000, guid: 63f58fa3e769d9c418e6611d8e9d8a37, type: 2}
 --- !u!1 &243754007
 GameObject:
@@ -2280,7 +2295,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1752311501}
+      - m_Target: {fileID: 1752311504}
         m_MethodName: PlayerAttack
         m_Mode: 1
         m_Arguments:
@@ -10820,9 +10835,21 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 3325629607626631695}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1752311492}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: adeb6162657b81a4b9a4c864359e8bdd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1752311504 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 959349770809055810, guid: dbe7c73c9fd1eaf45948f7c5a36bf7eb,
+    type: 3}
+  m_PrefabInstance: {fileID: 3325629607626631695}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1752311492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f742c334bf3a8d043998f1619e153757, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &1754658172 stripped
@@ -12292,6 +12319,11 @@ PrefabInstance:
       propertyPath: cameraController
       value: 
       objectReference: {fileID: 1728564193}
+    - target: {fileID: 3325629609108131010, guid: dbe7c73c9fd1eaf45948f7c5a36bf7eb,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3325629609108131008, guid: dbe7c73c9fd1eaf45948f7c5a36bf7eb,
         type: 3}
       propertyPath: uiPrefab
@@ -12302,46 +12334,11 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 1665578698}
-    - target: {fileID: 5815710505347538399, guid: dbe7c73c9fd1eaf45948f7c5a36bf7eb,
+    - target: {fileID: 3325629609108131012, guid: dbe7c73c9fd1eaf45948f7c5a36bf7eb,
         type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0.000000040978183
-      objectReference: {fileID: 0}
-    - target: {fileID: 5815710505347538399, guid: dbe7c73c9fd1eaf45948f7c5a36bf7eb,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0.036064625
-      objectReference: {fileID: 0}
-    - target: {fileID: 5815710505347538399, guid: dbe7c73c9fd1eaf45948f7c5a36bf7eb,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0.000000013038513
-      objectReference: {fileID: 0}
-    - target: {fileID: 5815710505347538399, guid: dbe7c73c9fd1eaf45948f7c5a36bf7eb,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.22672088
-      objectReference: {fileID: 0}
-    - target: {fileID: 5815710505347538399, guid: dbe7c73c9fd1eaf45948f7c5a36bf7eb,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.000000044703484
-      objectReference: {fileID: 0}
-    - target: {fileID: 5815710505347538399, guid: dbe7c73c9fd1eaf45948f7c5a36bf7eb,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.0000000018626451
-      objectReference: {fileID: 0}
-    - target: {fileID: 5815710505347538425, guid: dbe7c73c9fd1eaf45948f7c5a36bf7eb,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.55
-      objectReference: {fileID: 0}
-    - target: {fileID: 5815710505337729597, guid: dbe7c73c9fd1eaf45948f7c5a36bf7eb,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
+      propertyPath: combat
+      value: 
+      objectReference: {fileID: 1752311504}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dbe7c73c9fd1eaf45948f7c5a36bf7eb, type: 3}
 --- !u!1001 &3349118312400142196
