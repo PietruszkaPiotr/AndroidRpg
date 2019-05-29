@@ -8,6 +8,8 @@ public class CharacterStats : MonoBehaviour
     public int maxHealth = 100;
     public int maxMana = 100;
     public int nextLevelExp = 100;
+    protected int startHP;
+    protected int startMana;
     public int currentHealth { get; private set; }
     public int currentMana { get; private set; }
     public int currentExp { get; private set; }
@@ -46,6 +48,10 @@ public class CharacterStats : MonoBehaviour
 
     private void Awake()
     {
+        startHP = maxHealth;
+        startMana = maxMana;
+        maxHealth += condition.GetValue() * 10;
+        maxMana +=  wisdom.GetValue() * 10;
         currentHealth = maxHealth;
         currentMana = maxMana;
         UpdateUI();
@@ -53,10 +59,7 @@ public class CharacterStats : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.T))
-        {
-            TakeDamage(10);
-        }
+        
     }
     public void TakeDamage (int damage)
     {
@@ -250,26 +253,42 @@ public class CharacterStats : MonoBehaviour
 
     public void UpdateUI()
     {
-        lvlText.text = level.ToString();
-        pointsText.text = avaiblePoints.ToString();
+        if(lvlText!=null)
+        {
+            lvlText.text = level.ToString();
+            pointsText.text = avaiblePoints.ToString();
 
-        strText.text = strenght.baseValue.ToString();
-        dexText.text = agility.baseValue.ToString();
-        conText.text = condition.baseValue.ToString();
-        intText.text = intelligence.baseValue.ToString();
-        wisText.text = wisdom.baseValue.ToString();
-        chaText.text = charisma.baseValue.ToString();
+            strText.text = strenght.baseValue.ToString();
+            dexText.text = agility.baseValue.ToString();
+            conText.text = condition.baseValue.ToString();
+            intText.text = intelligence.baseValue.ToString();
+            wisText.text = wisdom.baseValue.ToString();
+            chaText.text = charisma.baseValue.ToString();
 
-        currHP.text = currentHealth.ToString() + "/" + maxHealth.ToString();
-        currMP.text = currentMana.ToString() + "/" + maxMana.ToString();
-        currExp.text = currentExp + "/" + nextLevelExp.ToString();
+            currHP.text = currentHealth.ToString() + "/" + maxHealth.ToString();
+            currMP.text = currentMana.ToString() + "/" + maxMana.ToString();
+            currExp.text = currentExp + "/" + nextLevelExp.ToString();
 
-        dmgP.text = minDamage.baseValue.ToString() + "-" + maxDamage.baseValue.ToString();
+            dmgP.text = minDamage.baseValue.ToString() + "-" + maxDamage.baseValue.ToString();
 
-        pArmor.text = armour.baseValue.ToString();
-        mArmor.text = magicResist.baseValue.ToString();
+            pArmor.text = armour.baseValue.ToString();
+            mArmor.text = magicResist.baseValue.ToString();
 
-        skillPoint.text = skillPoints.ToString();
+            skillPoint.text = skillPoints.ToString();
+        }
+        maxHealth = startHP + condition.GetValue() * 10;
+        maxMana = startMana + wisdom.GetValue() * 10;
+        if (OnHealthChanged != null)
+        {
+            OnHealthChanged.Invoke(maxHealth, currentHealth);
+        }
+
+        if (OnManaChanged != null)
+        {
+            OnManaChanged.Invoke(maxMana, currentMana);
+        }
+        
+        
     }
 
     public void SetStr(int value)
