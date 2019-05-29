@@ -23,7 +23,7 @@ public class PlayerStats : CharacterStats
 
             strenght.AddModifier(newItem.strenghtModifier);
             agility.AddModifier(newItem.agilityModifier);
-            constitution.AddModifier(newItem.constitutionModifier);
+            condition.AddModifier(newItem.constitutionModifier);
             intelligence.AddModifier(newItem.intelligenceModifier);
             wisdom.AddModifier(newItem.wisdomModifier);
             charisma.AddModifier(newItem.charismaModifier);
@@ -39,7 +39,7 @@ public class PlayerStats : CharacterStats
 
             strenght.RemoveModifier(oldItem.strenghtModifier);
             agility.RemoveModifier(oldItem.agilityModifier);
-            constitution.RemoveModifier(oldItem.constitutionModifier);
+            condition.RemoveModifier(oldItem.constitutionModifier);
             intelligence.RemoveModifier(oldItem.intelligenceModifier);
             wisdom.RemoveModifier(oldItem.wisdomModifier);
             charisma.RemoveModifier(oldItem.charismaModifier);

@@ -7,12 +7,14 @@ public class InventoryUI : MonoBehaviour
     public GameObject inventoryButton;
     public GameObject attackButton;
     public GameObject[] spellButton;
+    public GameObject[] infoButton;
     public GameObject equipmentUI;
     public GameObject HealthPot;
     public GameObject ManaPot;
     public GameObject HealthBar;
     public GameObject ManaBar;
     public GameObject ExpBar;
+    public GameObject StatsUI;
     Inventory inventory;
     EquipmentManager equipment;
     InventorySlot[] slots;
@@ -64,6 +66,9 @@ public class InventoryUI : MonoBehaviour
         for(int i=0;i<4;i++) {
             spellButton[i].SetActive(false);
         }
+        for (int i = 0; i < 4; i++) {
+            infoButton[i].SetActive(true);
+        }
         inventoryUI.SetActive(true);
         equipmentUI.SetActive(true);
         attackButton.SetActive(false);
@@ -72,19 +77,30 @@ public class InventoryUI : MonoBehaviour
         HealthBar.SetActive(false);
         ManaBar.SetActive(false);
         ExpBar.SetActive(false);
+        StatsUI.SetActive(false);
     }
     void Hide()
     {
         for (int i = 0; i < 4; i++) {
             spellButton[i].SetActive(true);
         }
+        for (int i = 0; i < 4; i++) {
+            infoButton[i].SetActive(false);
+        }
         inventoryUI.SetActive(false);
         attackButton.SetActive(true);
         equipmentUI.SetActive(false);
+        StatsUI.SetActive(false);
         HealthPot.SetActive(true);
         ManaPot.SetActive(true);
         HealthBar.SetActive(true);
         ManaBar.SetActive(true);
         ExpBar.SetActive(true);
+    }
+    public void ShowStats()
+    {
+        inventoryUI.SetActive(false);
+        equipmentUI.SetActive(false);
+        StatsUI.SetActive(true);
     }
 }

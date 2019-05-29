@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class CharacterStats : MonoBehaviour
 {
@@ -17,10 +18,13 @@ public class CharacterStats : MonoBehaviour
 
     public Stat strenght;
     public Stat agility;
-    public Stat constitution;
+    public Stat condition;
     public Stat intelligence;
     public Stat wisdom;
     public Stat charisma;
+
+    public int level;
+    public int avaiblePoints;
 
     public event System.Action<int, int> OnHealthChanged;
     public event System.Action<int, int> OnManaChanged;
@@ -30,6 +34,7 @@ public class CharacterStats : MonoBehaviour
     {
         currentHealth = maxHealth;
         currentMana = maxMana;
+        UpdateUI();
     }
 
     private void Update()
@@ -75,5 +80,145 @@ public class CharacterStats : MonoBehaviour
     {
         //Die in some way;
         Debug.Log(transform.name + " died.");
+    }
+
+    //UI-stats
+    public Text lvlText;
+    public Text pointsText;
+    public Text strText;
+    public Text dexText;
+    public Text conText;
+    public Text intText;
+    public Text wisText;
+    public Text chaText;
+
+    private int maxpoints = 10;
+    private int[] stats = { 8, 8, 8, 8, 8, 8 };
+
+    void UpdateUI()
+    {
+        lvlText.text = level.ToString();
+        pointsText.text = avaiblePoints.ToString();
+
+        strText.text = strenght.baseValue.ToString();
+        dexText.text = agility.baseValue.ToString();
+        conText.text = condition.baseValue.ToString();
+        intText.text = intelligence.baseValue.ToString();
+        wisText.text = wisdom.baseValue.ToString();
+        chaText.text = charisma.baseValue.ToString();
+    }
+
+    public void SetStr(int value)
+    {
+        if (value > 0 && avaiblePoints > 0)
+        {
+            strenght.baseValue += value;
+            avaiblePoints -= 1;
+            UpdateUI();
+        }
+        else if (value < 0 && strenght.baseValue > stats[0])
+        {
+            strenght.baseValue += value;
+            avaiblePoints += 1;
+            UpdateUI();
+        }
+    }
+    public void SetDex(int value)
+    {
+        if (value > 0 && avaiblePoints > 0)
+        {
+            agility.baseValue += value;
+            avaiblePoints -= 1;
+            UpdateUI();
+        }
+        else if (value < 0 && agility.baseValue > stats[1])
+        {
+            agility.baseValue += value;
+            avaiblePoints += 1;
+            UpdateUI();
+        }
+    }
+    public void SetCon(int value)
+    {
+        if (value > 0 && avaiblePoints > 0)
+        {
+            condition.baseValue += value;
+            avaiblePoints -= 1;
+            UpdateUI();
+        }
+        else if (value < 0 && condition.baseValue > stats[2])
+        {
+            condition.baseValue += value;
+            avaiblePoints += 1;
+            UpdateUI();
+        }
+    }
+    public void SetInt(int value)
+    {
+        if (value > 0 && avaiblePoints > 0)
+        {
+            intelligence.baseValue += value;
+            avaiblePoints -= 1;
+            UpdateUI();
+        }
+        else if (value < 0 && intelligence.baseValue > stats[3])
+        {
+            intelligence.baseValue += value;
+            avaiblePoints += 1;
+            UpdateUI();
+        }
+    }
+    public void SetWis(int value)
+    {
+        if (value > 0 && avaiblePoints > 0)
+        {
+            wisdom.baseValue += value;
+            avaiblePoints -= 1;
+            UpdateUI();
+        }
+        else if (value < 0 && wisdom.baseValue > stats[4])
+        {
+            wisdom.baseValue += value;
+            avaiblePoints += 1;
+            UpdateUI();
+        }
+    }
+    public void SetCha(int value)
+    {
+        if (value > 0 && avaiblePoints > 0)
+        {
+            charisma.baseValue += value;
+            avaiblePoints -= 1;
+            UpdateUI();
+        }
+        else if (value < 0 && charisma.baseValue > stats[5])
+        {
+            charisma.baseValue += value;
+            avaiblePoints += 1;
+            UpdateUI();
+        }
+    }
+    
+    public void SaveStats()
+    {
+        stats[0] = strenght.baseValue;
+        stats[1] = agility.baseValue;
+        stats[2] = condition.baseValue;
+        stats[3] = intelligence.baseValue;
+        stats[4] = wisdom.baseValue;
+        stats[5] = charisma.baseValue;
+        maxpoints = avaiblePoints;
+        UpdateUI();
+    }
+    public void ResetStats()
+    {
+        strenght.baseValue = stats[0];
+        agility.baseValue = stats[1];
+        condition.baseValue = stats[2];
+        intelligence.baseValue = stats[3];
+        wisdom.baseValue = stats[4];
+        charisma.baseValue = stats[5];
+        avaiblePoints = maxpoints;
+        UpdateUI();
     }
 }

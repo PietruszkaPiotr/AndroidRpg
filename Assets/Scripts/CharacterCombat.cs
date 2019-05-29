@@ -70,7 +70,7 @@ public class CharacterCombat : MonoBehaviour
 
             int damageModifier = myStats.strenght.GetValue();
             damageModifier = modifierCalculate(damageModifier);
-            int defenceModifier = targetStats.constitution.GetValue();
+            int defenceModifier = targetStats.condition.GetValue();
             int enemyArmor = targetStats.armour.GetValue();
             defenceModifier = modifierCalculate(defenceModifier);
 

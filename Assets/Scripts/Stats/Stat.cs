@@ -6,9 +6,10 @@ using UnityEngine;
 public class Stat
 {
     [SerializeField]
-    private int baseValue;
+    public int baseValue;
 
     private List<int> modifiers = new List<int>();
+
 
     public int GetValue()
     {
