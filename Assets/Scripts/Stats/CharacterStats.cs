@@ -3,8 +3,9 @@
 public class CharacterStats : MonoBehaviour
 {
     public int maxHealth = 100;
+    public int maxMana = 100;
     public int currentHealth { get; private set; }
-    public int currentMana;
+    public int currentMana { get; private set; }
 
     public Stat minDamage;
     public Stat maxDamage;
@@ -24,6 +25,7 @@ public class CharacterStats : MonoBehaviour
     private void Awake()
     {
         currentHealth = maxHealth;
+        currentMana = maxMana;
     }
 
     private void Update()
