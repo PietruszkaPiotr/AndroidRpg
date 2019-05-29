@@ -25,6 +25,7 @@ public class CharacterStats : MonoBehaviour
 
     public int level;
     public int avaiblePoints;
+    public int skillPoints;
 
     public event System.Action<int, int> OnHealthChanged;
     public event System.Action<int, int> OnManaChanged;
