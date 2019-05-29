@@ -15,12 +15,13 @@ MonoBehaviour:
   Name: Strike
   description: Powerfull hit with melee weapon
   icon: {fileID: 21300000, guid: 65d211f55b476254ea778e5c4d2e5735, type: 3}
-  iconButton: {fileID: 0}
-  required: strength
+  iconButton: {fileID: 21300000, guid: 375f932ead0237643a9c4620bbad7273, type: 3}
+  required: strenght
   value: 10
   gives: 020000000000000001000000000000000000000000000000
-  pdamage: 10
+  pdamage: 15
   mdamage: 0
-  scale: 1.2
+  heal: 0
+  scale: 1.3
   cooldown: 10
   range: 0

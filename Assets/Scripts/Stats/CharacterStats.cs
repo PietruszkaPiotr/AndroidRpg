@@ -97,6 +97,12 @@ public class CharacterStats : MonoBehaviour
             intelligence.baseValue -= 1;
             agility.baseValue -= 1;
             skillPoints -= 1;
+            stats[0] = strenght.baseValue;
+            stats[1] = agility.baseValue;
+            stats[2] = condition.baseValue;
+            stats[3] = intelligence.baseValue;
+            stats[4] = wisdom.baseValue;
+            stats[5] = charisma.baseValue;
             button.interactable = false;
             UpdateUI();
         }
@@ -114,6 +120,12 @@ public class CharacterStats : MonoBehaviour
             intelligence.baseValue -= 1;
             condition.baseValue -= 1;
             skillPoints -= 1;
+            stats[0] = strenght.baseValue;
+            stats[1] = agility.baseValue;
+            stats[2] = condition.baseValue;
+            stats[3] = intelligence.baseValue;
+            stats[4] = wisdom.baseValue;
+            stats[5] = charisma.baseValue;
             button.interactable = false;
             UpdateUI();
         }
@@ -126,11 +138,17 @@ public class CharacterStats : MonoBehaviour
     {
         if (skillPoints > 0)
         {
-            intelligence.baseValue += 3;
+            intelligence.baseValue += 2;
             wisdom.baseValue += 1;
             strenght.baseValue -= 1;
             agility.baseValue -= 1;
             skillPoints -= 1;
+            stats[0] = strenght.baseValue;
+            stats[1] = agility.baseValue;
+            stats[2] = condition.baseValue;
+            stats[3] = intelligence.baseValue;
+            stats[4] = wisdom.baseValue;
+            stats[5] = charisma.baseValue;
             button.interactable = false;
             UpdateUI();
         }
@@ -153,6 +171,7 @@ public class CharacterStats : MonoBehaviour
             button.interactable = false;
     }
     private Spell newSpell;
+    public Text SpellInfo;
     public void Spellnew (Spell spelly)
     {
         newSpell = spelly;
@@ -160,8 +179,33 @@ public class CharacterStats : MonoBehaviour
 
     public void AddToSpellBook(Button button)
     {
-        if (skillPoints > 0)
+        int req = 0;
+        if (newSpell.required == "strenght")
+            req = strenght.baseValue;
+        if (newSpell.required == "agility")
+            req = agility.baseValue;
+        if (newSpell.required == "condition")
+            req = condition.baseValue;
+        if (newSpell.required == "intelligence")
+            req = intelligence.baseValue;
+        if (newSpell.required == "wisdom")
+            req = wisdom.baseValue;
+        if (newSpell.required == "charisma")
+            req = charisma.baseValue;
+        if (skillPoints > 0 && req>=newSpell.value)
         {
+            strenght.baseValue += newSpell.gives[0];
+            agility.baseValue += newSpell.gives[1];
+            condition.baseValue += newSpell.gives[2];
+            intelligence.baseValue += newSpell.gives[3];
+            wisdom.baseValue += newSpell.gives[4];
+            charisma.baseValue += newSpell.gives[5];
+            stats[0] = strenght.baseValue;
+            stats[1] = agility.baseValue;
+            stats[2] = condition.baseValue;
+            stats[3] = intelligence.baseValue;
+            stats[4] = wisdom.baseValue;
+            stats[5] = charisma.baseValue;
             SpellBook.instance.Add(newSpell);
             button.interactable = false;
             skillPoints -= 1;
