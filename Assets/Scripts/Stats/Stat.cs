@@ -23,6 +23,7 @@ public class Stat
         if(modifier != 0)
         {
             modifiers.Add(modifier);
+            baseValue += modifier;
         }
     }
     public void RemoveModifier(int modifier)
@@ -30,6 +31,7 @@ public class Stat
         if(modifier != 0)
         {
             modifiers.Remove(modifier);
+            baseValue -= modifier;
         }
     }
 }

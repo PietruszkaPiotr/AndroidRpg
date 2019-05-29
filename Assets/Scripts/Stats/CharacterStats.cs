@@ -74,6 +74,7 @@ public class CharacterStats : MonoBehaviour
         {
             Die();
         }
+        UpdateUI();
     }
 
     public virtual void Die()
@@ -92,10 +93,18 @@ public class CharacterStats : MonoBehaviour
     public Text wisText;
     public Text chaText;
 
-    private int maxpoints = 10;
-    private int[] stats = { 8, 8, 8, 8, 8, 8 };
+    public Text currHP;
+    public Text currMP;
+    public Text currExp;
+    public Text dmgP;
+    public Text[] spellDmg;
+    public Text pArmor;
+    public Text mArmor;
 
-    void UpdateUI()
+    private int maxpoints = 10;
+    protected int[] stats = { 8, 8, 8, 8, 8, 8 };
+
+    public void UpdateUI()
     {
         lvlText.text = level.ToString();
         pointsText.text = avaiblePoints.ToString();
@@ -106,6 +115,15 @@ public class CharacterStats : MonoBehaviour
         intText.text = intelligence.baseValue.ToString();
         wisText.text = wisdom.baseValue.ToString();
         chaText.text = charisma.baseValue.ToString();
+
+        currHP.text = currentHealth.ToString() + "/" + maxHealth.ToString();
+        currMP.text = currentMana.ToString() + "/" + maxMana.ToString();
+        currExp.text = currentExp + "/" + nextLevelExp.ToString();
+
+        dmgP.text = minDamage.baseValue.ToString() + "-" + maxDamage.baseValue.ToString();
+
+        pArmor.text = armour.baseValue.ToString();
+        mArmor.text = magicResist.baseValue.ToString();
     }
 
     public void SetStr(int value)

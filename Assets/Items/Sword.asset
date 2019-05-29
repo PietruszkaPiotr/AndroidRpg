@@ -18,10 +18,12 @@ MonoBehaviour:
   equipSlot: 3
   mesh: {fileID: 7171119477549989068, guid: fe6e329b0e4f5334d9f71d2a6dd89c6d, type: 3}
   coveredMeshRegions: 
-  damageModifier: 5
+  minDamageModifier: 2
+  maxDamageModifier: 5
   armorModifier: 0
   magicDamageModifier: 0
-  strenghtModifier: 0
+  magicResistModifier: 0
+  strenghtModifier: 1
   agilityModifier: 0
   constitutionModifier: 0
   intelligenceModifier: 0

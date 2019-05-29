@@ -27,6 +27,15 @@ public class PlayerStats : CharacterStats
             intelligence.AddModifier(newItem.intelligenceModifier);
             wisdom.AddModifier(newItem.wisdomModifier);
             charisma.AddModifier(newItem.charismaModifier);
+
+            stats[0] = strenght.baseValue;
+            stats[1] = agility.baseValue;
+            stats[2] = condition.baseValue;
+            stats[3] = intelligence.baseValue;
+            stats[4] = wisdom.baseValue;
+            stats[5] = charisma.baseValue;
+
+            UpdateUI();
         }
         if(oldItem!=null)
         {
@@ -43,6 +52,15 @@ public class PlayerStats : CharacterStats
             intelligence.RemoveModifier(oldItem.intelligenceModifier);
             wisdom.RemoveModifier(oldItem.wisdomModifier);
             charisma.RemoveModifier(oldItem.charismaModifier);
+
+            stats[0] = strenght.baseValue;
+            stats[1] = agility.baseValue;
+            stats[2] = condition.baseValue;
+            stats[3] = intelligence.baseValue;
+            stats[4] = wisdom.baseValue;
+            stats[5] = charisma.baseValue;
+
+            UpdateUI();
         }
     }
 
