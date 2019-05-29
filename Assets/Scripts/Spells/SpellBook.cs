@@ -32,7 +32,6 @@ public class SpellBook : MonoBehaviour
             Debug.Log("Not enough room.");
             return false;
         }
-        Debug.Log("Weszło do inventory");
         spells.Add(spell);
     
         if (onSpellChangedCallback != null)

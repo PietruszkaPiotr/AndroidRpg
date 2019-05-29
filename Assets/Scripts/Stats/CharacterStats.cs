@@ -29,7 +29,16 @@ public class CharacterStats : MonoBehaviour
     public int avaiblePoints;
     public int skillPoints;
 
-    public List<Spell> spellList = new List<Spell>();
+    public Spell[] spellList;
+    private int whichSlot;
+    public void whichSpell(int i)
+    {
+        whichSlot = i;
+    }
+    public void Spelllist(SpellSlot slot)
+    {
+        spellList[whichSlot] = slot.spell; 
+    }
 
     public event System.Action<int, int> OnHealthChanged;
     public event System.Action<int, int> OnManaChanged;
