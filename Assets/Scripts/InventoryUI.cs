@@ -3,6 +3,7 @@
 public class InventoryUI : MonoBehaviour
 {
     public Transform itemsParent;
+    public Transform spellsParent;
     public GameObject inventoryUI;
     public GameObject inventoryButton;
     public GameObject attackButton;
@@ -18,8 +19,10 @@ public class InventoryUI : MonoBehaviour
     public GameObject TreeUI;
     public GameObject SpellBookUI;
     Inventory inventory;
+    SpellBook spellList;
     EquipmentManager equipment;
     InventorySlot[] slots;
+    SpellSlot[] spellSlots;
     EqtSlot[] eqSlots;
     // Start is called before the first frame update
     void Start()
@@ -27,7 +30,9 @@ public class InventoryUI : MonoBehaviour
         inventory = Inventory.instance;
         inventory.onItemChangedCallback += UpdateUI;
         slots = itemsParent.GetComponentsInChildren<InventorySlot>();
-
+        spellList = SpellBook.instance;
+        spellList.onSpellChangedCallback += UpdateSUI;
+        spellSlots = spellsParent.GetComponentsInChildren<SpellSlot>();
     }
 
     void UpdateUI()
@@ -44,6 +49,17 @@ public class InventoryUI : MonoBehaviour
             }
         }
     }
+    void UpdateSUI()
+    {
+        for (int i = 0; i < spellSlots.Length; i++)
+        {
+            if (i < spellList.spells.Count)
+            {
+                spellSlots[i].AddSpell(spellList.spells[i]);
+            }
+        }
+    }
+
 
     void UpdateEq()
     {

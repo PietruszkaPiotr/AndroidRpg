@@ -6,8 +6,9 @@ public class SpellSlot : MonoBehaviour
     public Image icon;
     Spell spell;
 
-    public void AddItem(Spell newSpell)
+    public void AddSpell(Spell newSpell)
     {
+        Debug.Log("Weszło do Slota");
         spell = newSpell;
         icon.sprite = spell.icon;
         icon.enabled = true;
@@ -17,7 +18,7 @@ public class SpellSlot : MonoBehaviour
     {
         if (spell != null)
         {
-            
+            Debug.Log("Jest");
         }
     }
 }

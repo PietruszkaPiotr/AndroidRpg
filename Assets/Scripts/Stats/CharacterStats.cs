@@ -152,6 +152,26 @@ public class CharacterStats : MonoBehaviour
         else
             button.interactable = false;
     }
+    private Spell newSpell;
+    public void Spellnew (Spell spelly)
+    {
+        newSpell = spelly;
+    }
+
+    public void AddToSpellBook(Button button)
+    {
+        if (skillPoints > 0)
+        {
+            SpellBook.instance.Add(newSpell);
+            button.interactable = false;
+            skillPoints -= 1;
+            UpdateUI();
+        }
+        else
+        {
+            button.interactable = true;
+        }
+    }
 
     //UI-stats
     public Text lvlText;

@@ -18,9 +18,9 @@ public class SpellBook : MonoBehaviour
     }
     #endregion
 
-    //public delegate void OnSpellChanged();
+    public delegate void OnSpellChanged();
 
-    //public OnSpellChanged onSpellChangedCallback;
+    public OnSpellChanged onSpellChangedCallback;
 
     public int space = 20;
     public List<Spell> spells = new List<Spell>();
@@ -32,12 +32,13 @@ public class SpellBook : MonoBehaviour
             Debug.Log("Not enough room.");
             return false;
         }
+        Debug.Log("Weszło do inventory");
         spells.Add(spell);
-
-        //if (onSpellChangedCallback != null)
-        //{
-        //    onSpellChangedCallback.Invoke();
-        //}
+    
+        if (onSpellChangedCallback != null)
+        {
+            onSpellChangedCallback.Invoke();
+        }
         return true;
     }
 }    
