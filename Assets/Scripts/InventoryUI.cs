@@ -10,6 +10,9 @@ public class InventoryUI : MonoBehaviour
     public GameObject equipmentUI;
     public GameObject HealthPot;
     public GameObject ManaPot;
+    public GameObject HealthBar;
+    public GameObject ManaBar;
+    public GameObject ExpBar;
     Inventory inventory;
     EquipmentManager equipment;
     InventorySlot[] slots;
@@ -66,6 +69,9 @@ public class InventoryUI : MonoBehaviour
         attackButton.SetActive(false);
         HealthPot.SetActive(false);
         ManaPot.SetActive(false);
+        HealthBar.SetActive(false);
+        ManaBar.SetActive(false);
+        ExpBar.SetActive(false);
     }
     void Hide()
     {
@@ -77,5 +83,8 @@ public class InventoryUI : MonoBehaviour
         equipmentUI.SetActive(false);
         HealthPot.SetActive(true);
         ManaPot.SetActive(true);
+        HealthBar.SetActive(true);
+        ManaBar.SetActive(true);
+        ExpBar.SetActive(true);
     }
 }
