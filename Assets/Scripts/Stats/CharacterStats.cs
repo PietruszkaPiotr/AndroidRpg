@@ -190,17 +190,17 @@ public class CharacterStats : MonoBehaviour
     {
         int req = 0;
         if (newSpell.required == "strenght")
-            req = strenght.baseValue;
+            req = stats[0];
         if (newSpell.required == "agility")
-            req = agility.baseValue;
+            req = stats[1];
         if (newSpell.required == "condition")
-            req = condition.baseValue;
+            req = stats[2];
         if (newSpell.required == "intelligence")
-            req = intelligence.baseValue;
+            req = stats[3];
         if (newSpell.required == "wisdom")
-            req = wisdom.baseValue;
+            req = stats[4];
         if (newSpell.required == "charisma")
-            req = charisma.baseValue;
+            req = stats[5];
         if (skillPoints > 0 && req>=newSpell.value)
         {
             strenght.baseValue += newSpell.gives[0];
