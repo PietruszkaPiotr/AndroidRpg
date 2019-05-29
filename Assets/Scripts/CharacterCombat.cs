@@ -42,15 +42,56 @@ public class CharacterCombat : MonoBehaviour
     {
         if(attackCooldown <= 0f)
         {
+            bool critFlag = false;
             oponentStats = targetStats;
             string name = transform.name;
-            int aim = Random.Range(1, 20);
-            int damage = myStats.maxDamage.GetValue();
+
+            #region hitLandCalculation
+            int hitModifier = myStats.agility.GetValue();
+            int dodgeModifier = targetStats.agility.GetValue();
+            hitModifier = modifierCalculate(hitModifier);
+            dodgeModifier = modifierCalculate(dodgeModifier);
+            int hitRoll = Random.Range(1, 20) + hitModifier - dodgeModifier;
+            if(hitRoll <8)
+            {
+                Debug.Log(name + " misssed");
+                attackCooldown = 1f / attackSpeed;
+                InCombat = true;
+                lastAttackTime = Time.time;
+                return;
+            }
+            else if (hitRoll>18)
+            {
+                critFlag = true;
+            }
+            #endregion
+
+            #region damageCalculation
+
+            int damageModifier = myStats.strenght.GetValue();
+            damageModifier = modifierCalculate(damageModifier);
+            int defenceModifier = targetStats.constitution.GetValue();
+            int enemyArmor = targetStats.armour.GetValue();
+            defenceModifier = modifierCalculate(defenceModifier);
+
+            int maxDamage = myStats.maxDamage.GetValue();
+            int minDamage = myStats.minDamage.GetValue();
+            int damageRoll = Random.Range(minDamage, maxDamage) + damageModifier-defenceModifier-enemyArmor;
+            if(damageRoll<0)
+            {
+                damageRoll = 0;
+            }
+            if(critFlag==true)
+            {
+                Debug.Log(name + ": Critical strike!");
+                damageRoll += Random.Range(1, 20);
+            }
+            #endregion
             //targetStats.TakeDamage(damage);
             //Debug.Log(name + " dealing "+damage+" damage");
-            if(transform.tag=="Player")
+            if (transform.tag=="Player" || transform.tag=="Enemy")
             {
-                StartCoroutine(DoDamage(attackDelay));
+                StartCoroutine(DoDamage(attackDelay, damageRoll));
             }
             if(OnAttack !=null)
             {
@@ -65,10 +106,10 @@ public class CharacterCombat : MonoBehaviour
 
 
 
-    protected IEnumerator DoDamage(float delay, int damageBuff = 0)
+    protected IEnumerator DoDamage(float delay, int damage)
     {
         yield return new WaitForSeconds(delay);
-        oponentStats.TakeDamage(myStats.maxDamage.GetValue() + damageBuff);
+        oponentStats.TakeDamage(damage);
         if (oponentStats.currentHealth <= 0)
         {
             InCombat = false;
@@ -82,5 +123,11 @@ public class CharacterCombat : MonoBehaviour
         {
             InCombat = false;
         }
+    }
+
+    protected int modifierCalculate(int stat)
+    {
+        int modifier = (stat - 10) / 2;
+        return modifier;
     }
 }

@@ -3,6 +3,7 @@
 public class CharacterStats : MonoBehaviour
 {
     public int maxHealth = 100;
+    public int maxMana = 100;
     public int currentHealth { get; private set; }
     public int currentMana;
 
@@ -35,7 +36,7 @@ public class CharacterStats : MonoBehaviour
     }
     public void TakeDamage (int damage)
     {
-        damage -= armour.GetValue();
+        //damage -= armour.GetValue();
         damage = Mathf.Clamp(damage, 0, int.MaxValue);
 
 

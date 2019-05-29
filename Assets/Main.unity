@@ -2157,27 +2157,27 @@ MonoBehaviour:
   maxHealth: 20
   currentMana: 0
   minDamage:
-    baseValue: 0
-  maxDamage:
     baseValue: 5
+  maxDamage:
+    baseValue: 7
   magicDamage:
     baseValue: 0
   armour:
     baseValue: 3
   magicResist:
-    baseValue: 0
+    baseValue: 5
   strenght:
-    baseValue: 0
+    baseValue: 12
   agility:
-    baseValue: 0
+    baseValue: 8
   constitution:
-    baseValue: 0
+    baseValue: 12
   intelligence:
-    baseValue: 0
+    baseValue: 6
   wisdom:
-    baseValue: 0
+    baseValue: 5
   charisma:
-    baseValue: 0
+    baseValue: 3
 --- !u!114 &237921416
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12367,34 +12367,11 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 1665578698}
-    - target: {fileID: 3325629609108131012, guid: dbe7c73c9fd1eaf45948f7c5a36bf7eb,
+    - target: {fileID: 3325629609108131009, guid: dbe7c73c9fd1eaf45948f7c5a36bf7eb,
         type: 3}
-      propertyPath: weaponAnimations.Array.size
-      value: 2
+      propertyPath: currentMana
+      value: 100
       objectReference: {fileID: 0}
-    - target: {fileID: 3325629609108131012, guid: dbe7c73c9fd1eaf45948f7c5a36bf7eb,
-        type: 3}
-      propertyPath: weaponAnimations.Array.data[1].clips.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3325629609108131012, guid: dbe7c73c9fd1eaf45948f7c5a36bf7eb,
-        type: 3}
-      propertyPath: weaponAnimations.Array.data[1].weapon
-      value: 
-      objectReference: {fileID: 11400000, guid: cf813f4e3f266a049825926be4948c12,
-        type: 2}
-    - target: {fileID: 3325629609108131012, guid: dbe7c73c9fd1eaf45948f7c5a36bf7eb,
-        type: 3}
-      propertyPath: weaponAnimations.Array.data[1].clips.Array.data[0]
-      value: 
-      objectReference: {fileID: -2885929190506768455, guid: 73be9633513854604baae3aa06041436,
-        type: 3}
-    - target: {fileID: 3325629609108131012, guid: dbe7c73c9fd1eaf45948f7c5a36bf7eb,
-        type: 3}
-      propertyPath: weaponAnimations.Array.data[1].clips.Array.data[1]
-      value: 
-      objectReference: {fileID: 2302182124160568986, guid: 73be9633513854604baae3aa06041436,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dbe7c73c9fd1eaf45948f7c5a36bf7eb, type: 3}
 --- !u!1001 &3349118312400142196

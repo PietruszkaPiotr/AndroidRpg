@@ -9,9 +9,11 @@ public class Equipment : Item
     public SkinnedMeshRenderer mesh;
     public EquipmentMeshRegion[] coveredMeshRegions;
 
-    public int damageModifier;
+    public int minDamageModifier;
+    public int maxDamageModifier;
     public int armorModifier;
     public int magicDamageModifier;
+    public int magicResistModifier;
     public int strenghtModifier;
     public int agilityModifier;
     public int constitutionModifier;

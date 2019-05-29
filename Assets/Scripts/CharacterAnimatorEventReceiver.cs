@@ -7,7 +7,7 @@ public class CharacterAnimatorEventReceiver : MonoBehaviour
     public CharacterCombat combat;
     public void AttackHitEvent()
     {
-        combat.AttackHit_AnimationEvent();
+        //combat.AttackHit_AnimationEvent();
     }
 
 }
