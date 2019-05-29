@@ -4,8 +4,10 @@ public class CharacterStats : MonoBehaviour
 {
     public int maxHealth = 100;
     public int maxMana = 100;
+    public int nextLevelExp = 100;
     public int currentHealth { get; private set; }
     public int currentMana { get; private set; }
+    public int currentExp { get; private set; }
 
     public Stat minDamage;
     public Stat maxDamage;
@@ -21,6 +23,8 @@ public class CharacterStats : MonoBehaviour
     public Stat charisma;
 
     public event System.Action<int, int> OnHealthChanged;
+    public event System.Action<int, int> OnManaChanged;
+    public event System.Action<int, int> OnExpChanged;
 
     private void Awake()
     {
@@ -42,11 +46,23 @@ public class CharacterStats : MonoBehaviour
 
 
         currentHealth -= damage;
+        currentMana -= damage;
+        currentExp += damage;
         Debug.Log(transform.name + " takes " + damage + " damage.");
 
         if(OnHealthChanged!=null)
         {
             OnHealthChanged.Invoke(maxHealth,currentHealth);
+        }
+
+        if(OnManaChanged != null)
+        {
+            OnManaChanged.Invoke(maxMana, currentMana);
+        }
+
+        if(OnExpChanged != null)
+        {
+            OnExpChanged.Invoke(nextLevelExp, currentExp);
         }
 
         if(currentHealth<=0)

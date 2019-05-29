@@ -130,6 +130,7 @@ GameObject:
   - component: {fileID: 3325629609108131012}
   - component: {fileID: 3325629609108131008}
   - component: {fileID: 959349770809055810}
+  - component: {fileID: 5077087303822780456}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -265,7 +266,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
-  currentMana: 0
+  maxMana: 100
+  nextLevelExp: 100
   minDamage:
     baseValue: 0
   maxDamage:
@@ -347,6 +349,18 @@ MonoBehaviour:
   fireballDelay: 10
   fireballRange: 10
   controller: {fileID: 3325629609108131017}
+--- !u!114 &5077087303822780456
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3325629609108131019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 254fb5e86491edf4da8bd07e6c7de713, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3562535619353693914
 GameObject:
   m_ObjectHideFlags: 0
