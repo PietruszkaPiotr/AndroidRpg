@@ -16,6 +16,7 @@ public class InventoryUI : MonoBehaviour
     public GameObject ExpBar;
     public GameObject StatsUI;
     public GameObject TreeUI;
+    public GameObject SpellBookUI;
     Inventory inventory;
     EquipmentManager equipment;
     InventorySlot[] slots;
@@ -27,15 +28,6 @@ public class InventoryUI : MonoBehaviour
         inventory.onItemChangedCallback += UpdateUI;
         slots = itemsParent.GetComponentsInChildren<InventorySlot>();
 
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        /*if(Input.GetButtonDown("Inventory"))
-        {
-            inventoryUI.SetActive(!inventoryUI.activeSelf);
-        }*/
     }
 
     void UpdateUI()
@@ -80,6 +72,7 @@ public class InventoryUI : MonoBehaviour
         ExpBar.SetActive(false);
         StatsUI.SetActive(false);
         TreeUI.SetActive(false);
+        SpellBookUI.SetActive(false);
     }
     void Hide()
     {
@@ -99,6 +92,7 @@ public class InventoryUI : MonoBehaviour
         ManaBar.SetActive(true);
         ExpBar.SetActive(true);
         TreeUI.SetActive(false);
+        SpellBookUI.SetActive(false);
     }
     public void ShowStats()
     {
@@ -106,7 +100,7 @@ public class InventoryUI : MonoBehaviour
         equipmentUI.SetActive(false);
         StatsUI.SetActive(true);
         TreeUI.SetActive(false);
-
+        SpellBookUI.SetActive(false);
     }
 
     public void ShowTree()
@@ -115,5 +109,14 @@ public class InventoryUI : MonoBehaviour
         equipmentUI.SetActive(false);
         StatsUI.SetActive(false);
         TreeUI.SetActive(true);
+        SpellBookUI.SetActive(false);
+    }
+    public void ShowBook()
+    {
+        inventoryUI.SetActive(false);
+        equipmentUI.SetActive(false);
+        StatsUI.SetActive(false);
+        TreeUI.SetActive(false);
+        SpellBookUI.SetActive(true);
     }
 }

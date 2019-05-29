@@ -14,6 +14,7 @@ public class Spell : ScriptableObject
     public int[] gives;
     public int pdamage;
     public int mdamage;
+    public int heal;
     public float scale;
     public int cooldown;
     public int range;

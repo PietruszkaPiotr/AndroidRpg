@@ -97,12 +97,12 @@ public class CharacterStats : MonoBehaviour
             intelligence.baseValue -= 1;
             agility.baseValue -= 1;
             skillPoints -= 1;
-            button.enabled = false;
+            button.interactable = false;
             UpdateUI();
         }
         else
         {
-            button.enabled = true;
+            button.interactable = true;
         }
     }
     public void Archer(Button button)
@@ -114,12 +114,12 @@ public class CharacterStats : MonoBehaviour
             intelligence.baseValue -= 1;
             condition.baseValue -= 1;
             skillPoints -= 1;
-            button.enabled = false;
+            button.interactable = false;
             UpdateUI();
         }
         else
         {
-            button.enabled = true;
+            button.interactable = true;
         }
     }
     public void Mage(Button button)
@@ -131,13 +131,26 @@ public class CharacterStats : MonoBehaviour
             strenght.baseValue -= 1;
             agility.baseValue -= 1;
             skillPoints -= 1;
-            button.enabled = false;
+            button.interactable = false;
             UpdateUI();
         }
         else
         {
-            button.enabled = true;
+            button.interactable = true;
         }
+    }
+    private Button lastButton;
+    public void Last(Button button)
+    {
+        lastButton = button;
+    }
+
+    public void checkIfPossible(Button button)
+    {
+        if (!lastButton.interactable)
+            button.interactable = true;
+        else
+            button.interactable = false;
     }
 
     //UI-stats
