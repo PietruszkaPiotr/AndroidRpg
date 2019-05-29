@@ -88,32 +88,56 @@ public class CharacterStats : MonoBehaviour
         Debug.Log(transform.name + " died.");
     }
 
-    public void Warrior()
+    public void Warrior(Button button)
     {
-        strenght.baseValue += 3;
-        condition.baseValue += 1;
-        intelligence.baseValue -= 1;
-        agility.baseValue -= 1;
-
-        UpdateUI();
+        if (skillPoints > 0)
+        {
+            strenght.baseValue += 3;
+            condition.baseValue += 1;
+            intelligence.baseValue -= 1;
+            agility.baseValue -= 1;
+            skillPoints -= 1;
+            button.enabled = false;
+            UpdateUI();
+        }
+        else
+        {
+            button.enabled = true;
+        }
     }
-    public void Archer()
+    public void Archer(Button button)
     {
-        strenght.baseValue += 3;
-        condition.baseValue += 1;
-        intelligence.baseValue -= 1;
-        agility.baseValue -= 1;
-
-        UpdateUI();
+        if (skillPoints > 0)
+        {
+            agility.baseValue += 3;
+            strenght.baseValue += 1;
+            intelligence.baseValue -= 1;
+            condition.baseValue -= 1;
+            skillPoints -= 1;
+            button.enabled = false;
+            UpdateUI();
+        }
+        else
+        {
+            button.enabled = true;
+        }
     }
-    public void Mage()
+    public void Mage(Button button)
     {
-        strenght.baseValue += 3;
-        condition.baseValue += 1;
-        intelligence.baseValue -= 1;
-        agility.baseValue -= 1;
-
-        UpdateUI();
+        if (skillPoints > 0)
+        {
+            intelligence.baseValue += 3;
+            wisdom.baseValue += 1;
+            strenght.baseValue -= 1;
+            agility.baseValue -= 1;
+            skillPoints -= 1;
+            button.enabled = false;
+            UpdateUI();
+        }
+        else
+        {
+            button.enabled = true;
+        }
     }
 
     //UI-stats
@@ -133,6 +157,7 @@ public class CharacterStats : MonoBehaviour
     public Text[] spellDmg;
     public Text pArmor;
     public Text mArmor;
+    public Text skillPoint;
 
     private int maxpoints = 10;
     protected int[] stats = { 8, 8, 8, 8, 8, 8 };
@@ -157,6 +182,8 @@ public class CharacterStats : MonoBehaviour
 
         pArmor.text = armour.baseValue.ToString();
         mArmor.text = magicResist.baseValue.ToString();
+
+        skillPoint.text = skillPoints.ToString();
     }
 
     public void SetStr(int value)
