@@ -15,6 +15,7 @@ public class InventoryUI : MonoBehaviour
     public GameObject ManaBar;
     public GameObject ExpBar;
     public GameObject StatsUI;
+    public GameObject TreeUI;
     Inventory inventory;
     EquipmentManager equipment;
     InventorySlot[] slots;
@@ -78,6 +79,7 @@ public class InventoryUI : MonoBehaviour
         ManaBar.SetActive(false);
         ExpBar.SetActive(false);
         StatsUI.SetActive(false);
+        TreeUI.SetActive(false);
     }
     void Hide()
     {
@@ -96,11 +98,22 @@ public class InventoryUI : MonoBehaviour
         HealthBar.SetActive(true);
         ManaBar.SetActive(true);
         ExpBar.SetActive(true);
+        TreeUI.SetActive(false);
     }
     public void ShowStats()
     {
         inventoryUI.SetActive(false);
         equipmentUI.SetActive(false);
         StatsUI.SetActive(true);
+        TreeUI.SetActive(false);
+
+    }
+
+    public void ShowTree()
+    {
+        inventoryUI.SetActive(false);
+        equipmentUI.SetActive(false);
+        StatsUI.SetActive(false);
+        TreeUI.SetActive(true);
     }
 }

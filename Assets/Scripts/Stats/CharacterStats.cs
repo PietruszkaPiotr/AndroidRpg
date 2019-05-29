@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class CharacterStats : MonoBehaviour
@@ -26,6 +28,8 @@ public class CharacterStats : MonoBehaviour
     public int level;
     public int avaiblePoints;
     public int skillPoints;
+
+    public List<Spell> spellList = new List<Spell>();
 
     public event System.Action<int, int> OnHealthChanged;
     public event System.Action<int, int> OnManaChanged;
@@ -82,6 +86,34 @@ public class CharacterStats : MonoBehaviour
     {
         //Die in some way;
         Debug.Log(transform.name + " died.");
+    }
+
+    public void Warrior()
+    {
+        strenght.baseValue += 3;
+        condition.baseValue += 1;
+        intelligence.baseValue -= 1;
+        agility.baseValue -= 1;
+
+        UpdateUI();
+    }
+    public void Archer()
+    {
+        strenght.baseValue += 3;
+        condition.baseValue += 1;
+        intelligence.baseValue -= 1;
+        agility.baseValue -= 1;
+
+        UpdateUI();
+    }
+    public void Mage()
+    {
+        strenght.baseValue += 3;
+        condition.baseValue += 1;
+        intelligence.baseValue -= 1;
+        agility.baseValue -= 1;
+
+        UpdateUI();
     }
 
     //UI-stats

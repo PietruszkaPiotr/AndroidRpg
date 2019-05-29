@@ -11,4 +11,10 @@ public class Spell : ScriptableObject
     public Sprite iconButton;
     public string required;
     public int value;
+    public int[] gives;
+    public int pdamage;
+    public int mdamage;
+    public float scale;
+    public int cooldown;
+    public int range;
 }

@@ -18,3 +18,9 @@ MonoBehaviour:
   iconButton: {fileID: 0}
   required: strength
   value: 10
+  gives: 020000000000000001000000000000000000000000000000
+  pdamage: 10
+  mdamage: 0
+  scale: 1.2
+  cooldown: 10
+  range: 0
