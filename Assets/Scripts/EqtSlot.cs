@@ -7,13 +7,22 @@ public class EqtSlot : MonoBehaviour
     Item item;
     private void Start()
     {
-        item = null; 
+        item = null;
+        ClearSlot();
     }
     public void AddItem(Equipment newItem)
     {
         
         item = newItem;
-        icon.sprite = item.icon;
+        if(item.isDefaultItem==false)
+        {
+            icon.sprite = item.icon;
+        }
+        else
+        {
+            icon.sprite = null;
+        }
+        
         icon.enabled = true;
     }
     public void ClearSlot()
