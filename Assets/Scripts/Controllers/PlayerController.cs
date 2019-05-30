@@ -29,7 +29,7 @@ public class PlayerController : MonoBehaviour {
         {
             return;
         }
-       if(Input.touchCount==1)
+       /*if(Input.touchCount==1)
         {
             acumTime += Input.GetTouch(0).deltaTime;
             if(acumTime >= holdTime)
@@ -64,7 +64,7 @@ public class PlayerController : MonoBehaviour {
         else
         {
             acumTime = 0;
-        }
+        }*/
 
        if(Input.GetMouseButtonDown(0))
         {
