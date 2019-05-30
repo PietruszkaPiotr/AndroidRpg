@@ -35,6 +35,12 @@ public class PlayerMotor : MonoBehaviour {
             agent.updateRotation = false;
             target = newTarget.interactionTransform;
         }
+        else if(newTarget.tag!="Item")
+        {
+            agent.stoppingDistance = newTarget.radius;
+            agent.updateRotation = false;
+            target = newTarget.interactionTransform;
+        }
         else
         {
             agent.stoppingDistance = newTarget.radius + stopDistance;
