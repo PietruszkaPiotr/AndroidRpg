@@ -196,7 +196,8 @@ public class InventoryUI : MonoBehaviour
             {
                 if(spells[i].name=="Heal")
                 {
-                    PlayerManager.instance.player.GetComponent<PlayerStats>().AddHP(spells[i].heal);
+                    int healAmount = spells[i].heal + (int)(1.1 * PlayerManager.instance.player.GetComponent<PlayerStats>().intelligence.GetValue());
+                    PlayerManager.instance.player.GetComponent<PlayerStats>().AddHP(healAmount);
                     PlayerManager.instance.player.GetComponent<PlayerStats>().AddMana(-10);
                 }
             }
