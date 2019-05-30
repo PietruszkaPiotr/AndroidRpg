@@ -75,6 +75,17 @@ public class PlayerController : MonoBehaviour {
                 motor.MoveToPoint(hit.point);
                 RemoveFocus();
             }
+            if(Physics.Raycast(ray, out hit, 100))
+            {
+                Interactable interactable = hit.collider.GetComponent<Interactable>();
+                if (interactable != null)
+                {
+                    SetFocus(interactable);
+                    Vector3 stop = transform.position;
+                    motor.MoveToPoint(stop);
+                }
+                
+            }
         }
         if (Input.GetMouseButtonDown(1))
         {
