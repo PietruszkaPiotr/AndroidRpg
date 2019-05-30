@@ -13,11 +13,15 @@ public class SpellSlot : MonoBehaviour
         icon.enabled = true;
     }
 
-    public void UseSpell(Image spellButton)
+    public void UseSpell(Button spellButton)
     {
         if (spell != null)
         {
-            spellButton.sprite = spell.iconButton;
+            spellButton.GetComponent<Image>().sprite = spell.iconButton;
+            if(spell.heal>0)
+            {
+                spellButton.tag = "healButton";
+            }
             
         }
     }

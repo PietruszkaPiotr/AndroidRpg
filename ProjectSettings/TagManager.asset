@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Fire
   - Enemy
+  - healButton
   layers:
   - Default
   - TransparentFX

@@ -187,5 +187,19 @@ public class InventoryUI : MonoBehaviour
             ManaPot.GetComponent<Image>().sprite = defaultManaPot;
         }
     }
-
+    public void UseSpell(Button button)
+    {
+        if(button.tag=="healButton")
+        {
+            Spell[] spells = PlayerManager.instance.player.GetComponent<PlayerStats>().spellList;
+            for(int i=0; i<spells.Length;i++)
+            {
+                if(spells[i].name=="Heal")
+                {
+                    PlayerManager.instance.player.GetComponent<PlayerStats>().AddHP(spells[i].heal);
+                    PlayerManager.instance.player.GetComponent<PlayerStats>().AddMana(-10);
+                }
+            }
+        }
+    }
 }
