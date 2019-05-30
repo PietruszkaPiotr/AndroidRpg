@@ -11,8 +11,8 @@ public class CharacterStats : MonoBehaviour
     protected int startHP;
     protected int startMana;
     public int currentHealth { get; set; }
-    public int currentMana { get; private set; }
-    public int currentExp { get; private set; }
+    public int currentMana { get; set; }
+    public int currentExp { get; set; }
 
     public Stat minDamage;
     public Stat maxDamage;
@@ -403,5 +403,31 @@ public class CharacterStats : MonoBehaviour
         charisma.baseValue = stats[5];
         avaiblePoints = maxpoints;
         UpdateUI();
+    }
+
+    public void AddHP(int amount)
+    {
+        currentHealth += amount;
+        if(currentHealth>maxHealth)
+        {
+            currentHealth = maxHealth;
+        }
+        if (OnHealthChanged != null)
+        {
+            OnHealthChanged.Invoke(maxHealth, currentHealth);
+        }
+    }
+    
+    public void AddMana(int amount)
+    {
+        currentMana += amount;
+        if (currentMana > maxMana)
+        {
+            currentMana = maxMana;
+        }
+        if (OnManaChanged != null)
+        {
+            OnManaChanged.Invoke(maxMana, currentMana);
+        }
     }
 }

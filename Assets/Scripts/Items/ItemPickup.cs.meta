@@ -3,7 +3,11 @@ guid: 06fff946776fd2846a43e3260c7b11c2
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - interactionTransform: {instanceID: 0}
+  - item: {instanceID: 0}
+  - healthButton: {instanceID: 0}
+  - manaButton: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class InventoryUI : MonoBehaviour
 {
@@ -18,6 +19,8 @@ public class InventoryUI : MonoBehaviour
     public GameObject StatsUI;
     public GameObject TreeUI;
     public GameObject SpellBookUI;
+    public Sprite defaultHealPot;
+    public Sprite defaultManaPot;
     Inventory inventory;
     SpellBook spellList;
     EquipmentManager equipment;
@@ -134,6 +137,55 @@ public class InventoryUI : MonoBehaviour
         StatsUI.SetActive(false);
         TreeUI.SetActive(false);
         SpellBookUI.SetActive(true);
+    }
+
+    public void UseHealPot()
+    {
+        for (int i=0;i < inventory.items.Count; i++)
+        {
+            
+            if(inventory.items[i].tag == "heal")
+            {
+                inventory.items[i].Use();
+                break;
+            }
+        }
+        bool potFlag = false;
+        for(int i=0; i< inventory.items.Count; i++)
+        {
+            if(inventory.items[i].tag == "heal")
+            {
+                potFlag = true;
+                break;
+            }
+        }
+        if(potFlag==false)
+        {
+            HealthPot.GetComponent<Image>().sprite = defaultHealPot;
+        }
+    }
+
+    public void UseManaPot()
+    {
+        for (int i = 0; i < inventory.items.Count; i++)
+        {
+            if (inventory.items[i].tag == "mana")
+            {
+                inventory.items[i].Use();
+            }
+        }
+        bool potFlag = false;
+        for (int i = 0; i < inventory.items.Count; i++)
+        {
+            if (inventory.items[i].tag == "mana")
+            {
+                potFlag = true;
+            }
+        }
+        if (potFlag == false)
+        {
+            ManaPot.GetComponent<Image>().sprite = defaultManaPot;
+        }
     }
 
 }
