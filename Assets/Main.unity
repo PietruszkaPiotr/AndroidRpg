@@ -2217,18 +2217,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 39367506}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: PlayerFireball
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &39367506
@@ -21664,18 +21653,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 781447367}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: PlayerFireball
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &781447367
@@ -22789,18 +22767,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 829757850}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: PlayerFireball
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &829757850
@@ -47054,18 +47021,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1570761603}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: PlayerFireball
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1570761603
@@ -64750,16 +64706,6 @@ PrefabInstance:
       propertyPath: cameraController
       value: 
       objectReference: {fileID: 1728564193}
-    - target: {fileID: 3325629609108131008, guid: dbe7c73c9fd1eaf45948f7c5a36bf7eb,
-        type: 3}
-      propertyPath: uiPrefab
-      value: 
-      objectReference: {fileID: 1665578699}
-    - target: {fileID: 3325629609108131008, guid: dbe7c73c9fd1eaf45948f7c5a36bf7eb,
-        type: 3}
-      propertyPath: target
-      value: 
-      objectReference: {fileID: 1665578698}
     - target: {fileID: 3325629609108131009, guid: dbe7c73c9fd1eaf45948f7c5a36bf7eb,
         type: 3}
       propertyPath: spellDmg.Array.size
@@ -64895,6 +64841,16 @@ PrefabInstance:
       propertyPath: skillPoints
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 3325629609108131008, guid: dbe7c73c9fd1eaf45948f7c5a36bf7eb,
+        type: 3}
+      propertyPath: uiPrefab
+      value: 
+      objectReference: {fileID: 1665578699}
+    - target: {fileID: 3325629609108131008, guid: dbe7c73c9fd1eaf45948f7c5a36bf7eb,
+        type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 1665578698}
     m_RemovedComponents:
     - {fileID: 5077087303822780456, guid: dbe7c73c9fd1eaf45948f7c5a36bf7eb, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: dbe7c73c9fd1eaf45948f7c5a36bf7eb, type: 3}

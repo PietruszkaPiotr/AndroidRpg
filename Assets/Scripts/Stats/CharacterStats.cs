@@ -10,7 +10,7 @@ public class CharacterStats : MonoBehaviour
     public int nextLevelExp = 100;
     protected int startHP;
     protected int startMana;
-    public int currentHealth { get; private set; }
+    public int currentHealth { get; set; }
     public int currentMana { get; private set; }
     public int currentExp { get; private set; }
 
@@ -50,7 +50,7 @@ public class CharacterStats : MonoBehaviour
     {
         startHP = maxHealth;
         startMana = maxMana;
-        maxHealth += condition.GetValue() * 10;
+        maxHealth += condition.GetValue() * 10 + level * 5;
         maxMana +=  wisdom.GetValue() * 10;
         currentHealth = maxHealth;
         currentMana = maxMana;
@@ -276,7 +276,7 @@ public class CharacterStats : MonoBehaviour
 
             skillPoint.text = skillPoints.ToString();
         }
-        maxHealth = startHP + condition.GetValue() * 10;
+        maxHealth = startHP + condition.GetValue() * 10 + level*5;
         maxMana = startMana + wisdom.GetValue() * 10;
         if (OnHealthChanged != null)
         {

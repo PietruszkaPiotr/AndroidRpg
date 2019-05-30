@@ -19,11 +19,16 @@ public class SpellBook : MonoBehaviour
     #endregion
 
     public delegate void OnSpellChanged();
-
+    SpellBook spellBook;
     public OnSpellChanged onSpellChangedCallback;
 
     public int space = 20;
     public List<Spell> spells = new List<Spell>();
+
+    private void Start()
+    {
+        spellBook = SpellBook.instance;
+    }
 
     public bool Add(Spell spell)
     {

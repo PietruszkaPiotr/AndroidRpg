@@ -135,4 +135,5 @@ public class InventoryUI : MonoBehaviour
         TreeUI.SetActive(false);
         SpellBookUI.SetActive(true);
     }
+
 }
