@@ -68,8 +68,7 @@ public class CharacterStats : MonoBehaviour
 
 
         currentHealth -= damage;
-        currentMana -= damage;
-        currentExp += damage;
+        
         Debug.Log(transform.name + " takes " + damage + " damage.");
 
         if(OnHealthChanged!=null)
@@ -416,6 +415,7 @@ public class CharacterStats : MonoBehaviour
         {
             OnHealthChanged.Invoke(maxHealth, currentHealth);
         }
+        UpdateUI();
     }
     
     public void AddMana(int amount)
@@ -429,5 +429,22 @@ public class CharacterStats : MonoBehaviour
         {
             OnManaChanged.Invoke(maxMana, currentMana);
         }
+        UpdateUI();
+    }
+
+    public void AddExp(int amount)
+    {
+        currentExp += amount;
+        if(currentExp>nextLevelExp)
+        {
+            level++;
+            currentExp -= nextLevelExp;
+            nextLevelExp *= 2;
+        }
+        if (OnExpChanged != null)
+        {
+            OnExpChanged.Invoke(currentExp, nextLevelExp);
+        }
+        UpdateUI();
     }
 }
