@@ -6,8 +6,9 @@ public class EnemyStats : CharacterStats
 {
     public override void Die()
     {
-        base.Die();
         PlayerManager.instance.player.GetComponent<PlayerStats>().AddExp(10);
+        base.Die();
+        
         //Add ragdoll effect/death animation
         Destroy(gameObject);
     }

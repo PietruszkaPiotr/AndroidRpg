@@ -443,7 +443,7 @@ public class CharacterStats : MonoBehaviour
         }
         if (OnExpChanged != null)
         {
-            OnExpChanged.Invoke(currentExp, nextLevelExp);
+            OnExpChanged.Invoke(nextLevelExp, currentExp);
         }
         UpdateUI();
     }

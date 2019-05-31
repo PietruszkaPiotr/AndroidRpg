@@ -20,7 +20,7 @@ public class PlayerExpUI : MonoBehaviour
             }
         }
         //healthSlider = uiPrefab;
-        GetComponent<CharacterStats>().OnManaChanged += OnManaChanged;
+        GetComponent<CharacterStats>().OnExpChanged += OnExpChanged;
     }
 
     protected void LateUpdate()
@@ -28,12 +28,12 @@ public class PlayerExpUI : MonoBehaviour
 
     }
 
-    protected void OnManaChanged(int nextLvlExp, int currentExp)
+    protected void OnExpChanged(int nextLvlExp, int currentExp)
     {
         if (ui != null)
         {
             ui.gameObject.SetActive(true);
-            float lvlPercent = 1-((float)currentExp / nextLvlExp);
+            float lvlPercent = ((float)currentExp / nextLvlExp);
             expSlider.fillAmount = lvlPercent;
         }
     }
