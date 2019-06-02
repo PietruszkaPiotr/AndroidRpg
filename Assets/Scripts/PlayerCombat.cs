@@ -72,6 +72,7 @@ public class PlayerCombat : CharacterCombat
         Spell spell = null;
         int number = -1;
         PlayerStats player = PlayerManager.instance.player.GetComponent<PlayerStats>();
+        bool used = false;
         if (button.name == "SpellButton_1")
         {
             number = 0;
@@ -134,7 +135,7 @@ public class PlayerCombat : CharacterCombat
             int healAmount = spell.heal + (int)(spell.scale * player.wisdom.GetValue());
             player.AddHP(healAmount);
             player.AddMana(spell.manaCost * -1);
-            cooldowns[number] = spell.cooldown;
+            used = true;
         }
         Interactable focus = controller.focus;
         if (spell.pdamage != 0)
@@ -147,10 +148,9 @@ public class PlayerCombat : CharacterCombat
                     CharacterStats focusStats = focus.GetComponent<CharacterStats>();
                     focusStats.TakeDamage ((int)(spell.pdamage + spell.scale * req - focusStats.armour.GetValue()));
                     player.AddMana(spell.manaCost * -1);
-                    cooldowns[number] = spell.cooldown;
+                    used = true;
                 }
             }
-            else return;
         }
         if (spell.mdamage != 0)
         {
@@ -162,10 +162,24 @@ public class PlayerCombat : CharacterCombat
                     CharacterStats focusStats = focus.GetComponent<CharacterStats>();
                     focusStats.TakeDamage((int)(spell.mdamage + spell.scale * req - focusStats.magicResist.GetValue()));
                     player.AddMana(spell.manaCost * -1);
-                    cooldowns[number] = spell.cooldown;
+                    used = true;
                 }
             }
-            else return;
         }
+        if(used)
+        {
+            cooldowns[number] = spell.cooldown;
+            //animation for cooldown
+            Image image = button.GetComponent<Image>();
+            Sprite sprite = image.sprite;
+            image.sprite = null;
+            StartCoroutine(EndCooldown(button, sprite, spell.cooldown));
+        }
+    }
+
+    IEnumerator EndCooldown(Button button, Sprite sprite, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        button.GetComponent<Image>().sprite=sprite;
     }
 }
