@@ -8,13 +8,22 @@ public class PlayerCombat : CharacterCombat
     public CharacterStats playerStats;
     public PlayerController controller;
     new public event System.Action OnAttack;
+    int[] cooldowns;
     protected override void Start()
     {
         base.Start();
+        cooldowns = new int[4];
     }
     protected override void Update()
     {
         base.Update();
+        for(int i= 0; i<cooldowns.Length;i++)
+        {
+            if(cooldowns[i]<=0)
+            {
+                cooldowns[i] = 0;
+            }
+        }
     }
     public override void Attack(CharacterStats targetStats)
     {
@@ -104,7 +113,7 @@ public class PlayerCombat : CharacterCombat
                 if (!(distance > spell.range))
                 {
                     CharacterStats focusStats = focus.GetComponent<CharacterStats>();
-                    focusStats.currentHealth -= (int)(spell.pdamage + spell.scale * req - focusStats.armour.GetValue());
+                    focusStats.TakeDamage ((int)(spell.pdamage + spell.scale * req - focusStats.armour.GetValue()));
                     player.AddMana(spell.manaCost * -1);
                 }
             }
@@ -118,7 +127,7 @@ public class PlayerCombat : CharacterCombat
                 if (!(distance > spell.range))
                 {
                     CharacterStats focusStats = focus.GetComponent<CharacterStats>();
-                    focusStats.currentHealth -= (int)(spell.mdamage + spell.scale * req - focusStats.magicResist.GetValue());
+                    focusStats.TakeDamage((int)(spell.mdamage + spell.scale * req - focusStats.magicResist.GetValue()));
                     player.AddMana(spell.manaCost * -1);
                 }
             }
