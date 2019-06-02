@@ -8,11 +8,11 @@ public class PlayerCombat : CharacterCombat
     public CharacterStats playerStats;
     public PlayerController controller;
     new public event System.Action OnAttack;
-    int[] cooldowns;
+    float[] cooldowns;
     protected override void Start()
     {
         base.Start();
-        cooldowns = new int[4];
+        cooldowns = new float[4];
     }
     protected override void Update()
     {
@@ -22,6 +22,10 @@ public class PlayerCombat : CharacterCombat
             if(cooldowns[i]<=0)
             {
                 cooldowns[i] = 0;
+            }
+            else
+            {
+                cooldowns[i] -= Time.deltaTime;
             }
         }
     }
@@ -66,22 +70,49 @@ public class PlayerCombat : CharacterCombat
     public void UseSpell(Button button)
     {
         Spell spell = null;
+        int number = -1;
         PlayerStats player = PlayerManager.instance.player.GetComponent<PlayerStats>();
         if (button.name == "SpellButton_1")
         {
+            number = 0;
             spell = player.spellList[0];
+            if(cooldowns[0]>0)
+            {
+                Debug.Log("Cooldown 0");
+                
+                return;
+            }
         }
         if (button.name == "SpellButton_2")
         {
+            number = 1;
             spell = player.spellList[1];
+            if (cooldowns[1] > 0)
+            {
+                Debug.Log("Cooldown 1");
+
+                return;
+            }
         }
         if (button.name == "SpellButton_3")
         {
+            number = 2;
             spell = player.spellList[2];
+            if (cooldowns[2] > 0)
+            {
+                Debug.Log("Cooldown 2");
+                return;
+            }
         }
         if (button.name == "SpellButton_4")
         {
+            number = 3;
             spell = player.spellList[3];
+            if (cooldowns[3] > 0)
+            {
+                Debug.Log("Cooldown 3");
+                return;
+            }
         }
         if (spell.manaCost > player.currentMana)
             return;
@@ -103,6 +134,7 @@ public class PlayerCombat : CharacterCombat
             int healAmount = spell.heal + (int)(spell.scale * player.wisdom.GetValue());
             player.AddHP(healAmount);
             player.AddMana(spell.manaCost * -1);
+            cooldowns[number] = spell.cooldown;
         }
         Interactable focus = controller.focus;
         if (spell.pdamage != 0)
@@ -115,6 +147,7 @@ public class PlayerCombat : CharacterCombat
                     CharacterStats focusStats = focus.GetComponent<CharacterStats>();
                     focusStats.TakeDamage ((int)(spell.pdamage + spell.scale * req - focusStats.armour.GetValue()));
                     player.AddMana(spell.manaCost * -1);
+                    cooldowns[number] = spell.cooldown;
                 }
             }
             else return;
@@ -129,6 +162,7 @@ public class PlayerCombat : CharacterCombat
                     CharacterStats focusStats = focus.GetComponent<CharacterStats>();
                     focusStats.TakeDamage((int)(spell.mdamage + spell.scale * req - focusStats.magicResist.GetValue()));
                     player.AddMana(spell.manaCost * -1);
+                    cooldowns[number] = spell.cooldown;
                 }
             }
             else return;
