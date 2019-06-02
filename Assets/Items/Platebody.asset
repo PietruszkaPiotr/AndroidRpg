@@ -15,12 +15,16 @@ MonoBehaviour:
   name: Platebody
   icon: {fileID: 21300000, guid: 56e563e953e6fd74a895f299c27f94d1, type: 3}
   isDefaultItem: 0
+  tag: equipment
+  description: 
   equipSlot: 1
   mesh: {fileID: 2354079927903203152, guid: 15f3d834625e07847a0bfbd7e038940a, type: 3}
   coveredMeshRegions: 0100000002000000
-  damageModifier: 0
+  minDamageModifier: 0
+  maxDamageModifier: 0
   armorModifier: 3
   magicDamageModifier: 0
+  magicResistModifier: 0
   strenghtModifier: 0
   agilityModifier: -1
   constitutionModifier: 1

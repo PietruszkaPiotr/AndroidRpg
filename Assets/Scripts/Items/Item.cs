@@ -7,6 +7,7 @@ public class Item : ScriptableObject
     public Sprite icon = null;
     public bool isDefaultItem = false;
     public string tag = "";
+    public string description;
 
     public virtual void Use()
     {
@@ -16,5 +17,9 @@ public class Item : ScriptableObject
     public void RemoveFormInventory()
     {
         Inventory.instance.Remove(this);
+    }
+    public virtual string GetDescription()
+    {
+        return name;
     }
 }

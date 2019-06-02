@@ -15,6 +15,8 @@ MonoBehaviour:
   name: Sword
   icon: {fileID: 21300000, guid: e5b106e49d728544eae083a1c535787c, type: 3}
   isDefaultItem: 0
+  tag: equipment
+  description: 
   equipSlot: 3
   mesh: {fileID: 7171119477549989068, guid: fe6e329b0e4f5334d9f71d2a6dd89c6d, type: 3}
   coveredMeshRegions: 

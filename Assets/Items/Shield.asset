@@ -15,12 +15,16 @@ MonoBehaviour:
   name: Shield
   icon: {fileID: 21300000, guid: a7913e07c76ba7e45ae6e0cfd0dee408, type: 3}
   isDefaultItem: 0
+  tag: equipment
+  description: 
   equipSlot: 4
   mesh: {fileID: 2490034806876568828, guid: 8e591e1f23a12bf42bbd05f122f766b0, type: 3}
   coveredMeshRegions: 
-  damageModifier: 1
+  minDamageModifier: 0
+  maxDamageModifier: 0
   armorModifier: 3
   magicDamageModifier: 0
+  magicResistModifier: 0
   strenghtModifier: 0
   agilityModifier: 0
   constitutionModifier: 0

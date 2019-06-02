@@ -13,4 +13,18 @@ public class Potion : Item
         stats.AddMana(manaAmount);
         RemoveFormInventory();
     }
+    public override string GetDescription()
+    {
+        string desc = name;
+        desc += "\n" + description;
+        if(healthAmount>0)
+        {
+            description += "\nHeals: " + healthAmount;
+        }
+        if(manaAmount>0)
+        {
+            description += "\nAdds Mana: " + manaAmount;
+        }
+        return desc;
+    }
 }

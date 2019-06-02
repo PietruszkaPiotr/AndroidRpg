@@ -15,12 +15,16 @@ MonoBehaviour:
   name: Hammer
   icon: {fileID: 21300000, guid: ff2e339efa1a926469eb24437a311307, type: 3}
   isDefaultItem: 0
+  tag: equipment
+  description: 
   equipSlot: 3
   mesh: {fileID: -2494698595586082384, guid: fbd76fd1dc4fe804d9a6a93db885aa9d, type: 3}
   coveredMeshRegions: 
-  damageModifier: 5
+  minDamageModifier: 0
+  maxDamageModifier: 0
   armorModifier: 0
   magicDamageModifier: 0
+  magicResistModifier: 0
   strenghtModifier: 0
   agilityModifier: 0
   constitutionModifier: 0

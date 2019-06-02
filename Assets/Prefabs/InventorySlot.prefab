@@ -258,6 +258,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 2232913238279390674}
   removeButton: {fileID: 4541031741025444399}
+  panel: {fileID: 2484652934550257385, guid: 07c93808977549e47a75ecbd5b3a8d76, type: 3}
 --- !u!1 &7439028870084573294
 GameObject:
   m_ObjectHideFlags: 0
@@ -377,7 +378,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 4256052656148626137}
-        m_MethodName: UseItem
+        m_MethodName: ItemDescription
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

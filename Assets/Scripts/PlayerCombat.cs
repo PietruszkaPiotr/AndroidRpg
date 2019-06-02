@@ -170,16 +170,14 @@ public class PlayerCombat : CharacterCombat
         {
             cooldowns[number] = spell.cooldown;
             //animation for cooldown
-            Image image = button.GetComponent<Image>();
-            Sprite sprite = image.sprite;
-            image.sprite = null;
-            StartCoroutine(EndCooldown(button, sprite, spell.cooldown));
+            button.interactable = false;
+            StartCoroutine(EndCooldown(button, spell.cooldown));
         }
     }
 
-    IEnumerator EndCooldown(Button button, Sprite sprite, float delay)
+    IEnumerator EndCooldown(Button button, float delay)
     {
         yield return new WaitForSeconds(delay);
-        button.GetComponent<Image>().sprite=sprite;
+        button.interactable = true;
     }
 }

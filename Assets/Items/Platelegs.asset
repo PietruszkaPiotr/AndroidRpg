@@ -15,12 +15,16 @@ MonoBehaviour:
   name: Platelegs
   icon: {fileID: 21300000, guid: 32c888c859321e44eaafd17f623d5b33, type: 3}
   isDefaultItem: 0
+  tag: equipment
+  description: 
   equipSlot: 2
   mesh: {fileID: 4046985572413909248, guid: 280a7c32137795f409a288fbcc5b7d9a, type: 3}
   coveredMeshRegions: 00000000
-  damageModifier: 0
+  minDamageModifier: 0
+  maxDamageModifier: 0
   armorModifier: 3
   magicDamageModifier: 0
+  magicResistModifier: 0
   strenghtModifier: 0
   agilityModifier: 0
   constitutionModifier: 0
