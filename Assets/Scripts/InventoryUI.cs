@@ -21,6 +21,7 @@ public class InventoryUI : MonoBehaviour
     public GameObject SpellBookUI;
     public Sprite defaultHealPot;
     public Sprite defaultManaPot;
+    public Sprite defaultAttackSprite;
     Inventory inventory;
     SpellBook spellList;
     EquipmentManager equipment;
@@ -36,6 +37,29 @@ public class InventoryUI : MonoBehaviour
         spellList = SpellBook.instance;
         spellList.onSpellChangedCallback += UpdateSUI;
         spellSlots = spellsParent.GetComponentsInChildren<SpellSlot>();
+        equipment = EquipmentManager.instance;
+        equipment.onEquipmentChanged += UpdateAttackIcon;
+    }
+
+    void UpdateAttackIcon(Equipment newItem, Equipment oldItem)
+    {
+        if(newItem==null)
+        {
+            if(oldItem!=null)
+            {
+                if((int)oldItem.equipSlot==3)
+                {
+                    attackButton.GetComponentsInChildren<Image>()[2].sprite = defaultAttackSprite;
+                }
+            }
+        }
+        else
+        {
+            if((int)newItem.equipSlot==3)
+            {
+                attackButton.GetComponentsInChildren<Image>()[2].sprite = newItem.icon;
+            }
+        }
     }
 
     void UpdateUI()

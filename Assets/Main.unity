@@ -4180,6 +4180,8 @@ MonoBehaviour:
   SpellBookUI: {fileID: 1866693751}
   defaultHealPot: {fileID: 21300000, guid: e1994adaa5679cd4789471d2faf50320, type: 3}
   defaultManaPot: {fileID: 21300000, guid: 5539312a798348d43b986e939d9af528, type: 3}
+  defaultAttackSprite: {fileID: 21300000, guid: 72bdb7141f7ea4445b56d021c0e71295,
+    type: 3}
 --- !u!1001 &234736845
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16605,7 +16607,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 3504e40025ef10e45ae5cdca13dbe299, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 72bdb7141f7ea4445b56d021c0e71295, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
