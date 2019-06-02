@@ -24,4 +24,5 @@ MonoBehaviour:
   heal: 20
   scale: 1.1
   cooldown: 8
+  manaCost: 20
   range: 0

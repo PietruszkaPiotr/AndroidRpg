@@ -92,6 +92,7 @@ public class InventoryUI : MonoBehaviour
         StatsUI.SetActive(false);
         TreeUI.SetActive(false);
         SpellBookUI.SetActive(false);
+        PlayerManager.instance.player.GetComponent<PlayerStats>().UpdateUI();
     }
     void Hide()
     {
@@ -112,6 +113,7 @@ public class InventoryUI : MonoBehaviour
         ExpBar.SetActive(true);
         TreeUI.SetActive(false);
         SpellBookUI.SetActive(false);
+        PlayerManager.instance.player.GetComponent<PlayerStats>().UpdateUI();
     }
     public void ShowStats()
     {
@@ -120,6 +122,7 @@ public class InventoryUI : MonoBehaviour
         StatsUI.SetActive(true);
         TreeUI.SetActive(false);
         SpellBookUI.SetActive(false);
+        PlayerManager.instance.player.GetComponent<PlayerStats>().UpdateUI();
     }
 
     public void ShowTree()
@@ -129,6 +132,7 @@ public class InventoryUI : MonoBehaviour
         StatsUI.SetActive(false);
         TreeUI.SetActive(true);
         SpellBookUI.SetActive(false);
+        PlayerManager.instance.player.GetComponent<PlayerStats>().UpdateUI();
     }
     public void ShowBook()
     {
@@ -137,6 +141,7 @@ public class InventoryUI : MonoBehaviour
         StatsUI.SetActive(false);
         TreeUI.SetActive(false);
         SpellBookUI.SetActive(true);
+        PlayerManager.instance.player.GetComponent<PlayerStats>().UpdateUI();
     }
 
     public void UseHealPot()
@@ -185,22 +190,6 @@ public class InventoryUI : MonoBehaviour
         if (potFlag == false)
         {
             ManaPot.GetComponent<Image>().sprite = defaultManaPot;
-        }
-    }
-    public void UseSpell(Button button)
-    {
-        if(button.tag=="healButton")
-        {
-            Spell[] spells = PlayerManager.instance.player.GetComponent<PlayerStats>().spellList;
-            for(int i=0; i<spells.Length;i++)
-            {
-                if(spells[i].name=="Heal")
-                {
-                    int healAmount = spells[i].heal + (int)(1.1 * PlayerManager.instance.player.GetComponent<PlayerStats>().wisdom.GetValue());
-                    PlayerManager.instance.player.GetComponent<PlayerStats>().AddHP(healAmount);
-                    PlayerManager.instance.player.GetComponent<PlayerStats>().AddMana(-10);
-                }
-            }
         }
     }
 }

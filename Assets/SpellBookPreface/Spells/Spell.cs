@@ -17,5 +17,6 @@ public class Spell : ScriptableObject
     public int heal;
     public float scale;
     public int cooldown;
+    public int manaCost;
     public int range;
 }

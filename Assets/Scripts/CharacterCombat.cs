@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(CharacterStats))]
 public class CharacterCombat : MonoBehaviour
@@ -101,10 +102,7 @@ public class CharacterCombat : MonoBehaviour
             InCombat = true;
             lastAttackTime = Time.time;
         }
-        
     }
-
-
 
     protected IEnumerator DoDamage(float delay, int damage)
     {

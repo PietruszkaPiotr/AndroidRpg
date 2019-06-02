@@ -1643,7 +1643,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 220161494}
+      - m_Target: {fileID: 1752311504}
         m_MethodName: UseSpell
         m_Mode: 2
         m_Arguments:
@@ -4539,27 +4539,7 @@ MonoBehaviour:
     baseValue: 5
   charisma:
     baseValue: 3
-  level: 0
-  avaiblePoints: 0
-  skillPoints: 0
-  spellList: []
-  SpellInfo: {fileID: 0}
-  lvlText: {fileID: 0}
-  pointsText: {fileID: 0}
-  strText: {fileID: 0}
-  dexText: {fileID: 0}
-  conText: {fileID: 0}
-  intText: {fileID: 0}
-  wisText: {fileID: 0}
-  chaText: {fileID: 0}
-  currHP: {fileID: 0}
-  currMP: {fileID: 0}
-  currExp: {fileID: 0}
-  dmgP: {fileID: 0}
-  spellDmg: []
-  pArmor: {fileID: 0}
-  mArmor: {fileID: 0}
-  skillPoint: {fileID: 0}
+  level: 1
 --- !u!114 &237921416
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12724,7 +12704,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 220161494}
+      - m_Target: {fileID: 1752311504}
         m_MethodName: UseSpell
         m_Mode: 2
         m_Arguments:
@@ -13126,7 +13106,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 220161494}
+      - m_Target: {fileID: 1752311504}
         m_MethodName: UseSpell
         m_Mode: 2
         m_Arguments:
@@ -24981,7 +24961,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 220161494}
+      - m_Target: {fileID: 1752311504}
         m_MethodName: UseSpell
         m_Mode: 2
         m_Arguments:

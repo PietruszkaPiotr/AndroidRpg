@@ -1,15 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerCombat : CharacterCombat
 {
     public CharacterStats playerStats;
-    public float fireballCooldown = 0f;
-    public float fireballDelay = 10f;
-    public float fireballRange = 10f;
     public PlayerController controller;
-    public event System.Action OnFireball;
     new public event System.Action OnAttack;
     protected override void Start()
     {
@@ -18,11 +15,6 @@ public class PlayerCombat : CharacterCombat
     protected override void Update()
     {
         base.Update();
-        fireballCooldown -= Time.deltaTime;
-        if (fireballCooldown < 0)
-        {
-            fireballCooldown = 0;
-        }
     }
     public override void Attack(CharacterStats targetStats)
     {
@@ -55,64 +47,82 @@ public class PlayerCombat : CharacterCombat
                 CharacterStats focusStats = focus.GetComponent<CharacterStats>();
                 Attack(focusStats);
             }
-
         }
         else
         {
             Debug.Log("Noone to attack");
         }
     }
-    public void PlayerFireball()
+
+    public void UseSpell(Button button)
     {
+        Spell spell = null;
+        PlayerStats player = PlayerManager.instance.player.GetComponent<PlayerStats>();
+        if (button.name == "SpellButton_1")
+        {
+            spell = player.spellList[0];
+        }
+        if (button.name == "SpellButton_2")
+        {
+            spell = player.spellList[1];
+        }
+        if (button.name == "SpellButton_3")
+        {
+            spell = player.spellList[2];
+        }
+        if (button.name == "SpellButton_4")
+        {
+            spell = player.spellList[3];
+        }
+        if (spell.manaCost > player.currentMana)
+            return;
+        int req = 0;
+        if (spell.required == "strength")
+            req = player.strenght.GetValue();
+        if (spell.required == "agility")
+            req = player.agility.GetValue();
+        if (spell.required == "condition")
+            req = player.condition.GetValue();
+        if (spell.required == "intelligence")
+            req = player.intelligence.GetValue();
+        if (spell.required == "wisdom")
+            req = player.wisdom.GetValue();
+        if (spell.required == "charisma")
+            req = player.charisma.GetValue();
+        if (spell.heal != 0)
+        {
+            int healAmount = spell.heal + (int)(spell.scale * player.wisdom.GetValue());
+            player.AddHP(healAmount);
+            player.AddMana(spell.manaCost * -1);
+        }
         Interactable focus = controller.focus;
-        if (focus != null && focus.tag == "Enemy")
+        if (spell.pdamage != 0)
         {
-            CharacterStats focusStats = focus.GetComponent<CharacterStats>();
-            CastFireball(focusStats);
-
-        }
-        else
-        {
-            Debug.Log("Noone to attack");
-        }
-    }
-    public void CastFireball(CharacterStats targetStats)
-    {
-
-
-        if (fireballCooldown <= 0)
-        {
-            if (controller != null)
+            if (focus != null && focus.tag == "Enemy")
             {
-                if (controller.focus == null)
+                float distance = Vector3.Distance(focus.transform.position, PlayerManager.instance.player.transform.position);
+                if (!(distance > spell.range))
                 {
-                    Debug.Log("No target to cast fireball");
-                    return;
-                }
-                Vector3 position = transform.position;
-                Vector3 enemyPosition = controller.focus.transform.position;
-                float distance = Vector3.Distance(position, enemyPosition);
-                if (distance > fireballRange)
-                {
-                    Debug.Log("Target too far away");
-                    controller.Follow(fireballRange - 3f);
-                    return;
+                    CharacterStats focusStats = focus.GetComponent<CharacterStats>();
+                    focusStats.currentHealth -= (int)(spell.pdamage + spell.scale * req - focusStats.armour.GetValue());
+                    player.AddMana(spell.manaCost * -1);
                 }
             }
-            oponentStats = targetStats;
-            string name = transform.name;
-            int damage = Random.Range(1, 20);
-            damage += myStats.maxDamage.GetValue();
-            //targetStats.TakeDamage(damage);
-            //Debug.Log(name + " Casting fireball, doing " + damage + " damage");
-            StartCoroutine(DoDamage(1f, damage));
-            if (OnFireball != null)
+            else return;
+        }
+        if (spell.mdamage != 0)
+        {
+            if (focus != null && focus.tag == "Enemy")
             {
-                OnFireball();
+                float distance = Vector3.Distance(focus.transform.position, PlayerManager.instance.player.transform.position);
+                if (!(distance > spell.range))
+                {
+                    CharacterStats focusStats = focus.GetComponent<CharacterStats>();
+                    focusStats.currentHealth -= (int)(spell.mdamage + spell.scale * req - focusStats.magicResist.GetValue());
+                    player.AddMana(spell.manaCost * -1);
+                }
             }
-            fireballCooldown = fireballDelay;
-            InCombat = true;
-            lastAttackTime = Time.time;
+            else return;
         }
     }
 }
