@@ -4,6 +4,7 @@ using UnityEngine.UI;
 public class EqtSlot : MonoBehaviour
 {
     public Image icon;
+    public GameObject panel;
     Item item;
     private void Start()
     {
@@ -24,6 +25,16 @@ public class EqtSlot : MonoBehaviour
         }
         
         icon.enabled = true;
+    }
+    public void ItemDescription()
+    {
+        if (item != null)
+        {
+            panel.SetActive(true);
+            panel.GetComponentInChildren<Text>().text = item.GetDescription();
+            panel.GetComponentsInChildren<Image>()[1].sprite = item.icon;
+            panel.GetComponent<EquipmentPanel>().item = (Equipment)item;
+        }
     }
     public void ClearSlot()
     {
