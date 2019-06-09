@@ -12,6 +12,7 @@ public class InventoryPanel : MonoBehaviour
         if (!Inventory.instance.wear)
         {
             PlayerManager.instance.player.GetComponent<PlayerStats>().gold += item.value;
+            PlayerManager.instance.player.GetComponent<PlayerStats>().UpdateUI();
             Inventory.instance.Remove(item);
             Shop.instance.Add(item);
         }
@@ -25,10 +26,10 @@ public class InventoryPanel : MonoBehaviour
 
     public void OnBuy()
     {
-        int gold = PlayerManager.instance.player.GetComponent<PlayerStats>().gold;
-        if(gold >= item.value)
+        if(PlayerManager.instance.player.GetComponent<PlayerStats>().gold >= item.value)
         {
-            gold -= item.value;
+            PlayerManager.instance.player.GetComponent<PlayerStats>().gold -= item.value;
+            PlayerManager.instance.player.GetComponent<PlayerStats>().UpdateUI();
             Inventory.instance.Add(item);
             Shop.instance.Remove(item);
         }

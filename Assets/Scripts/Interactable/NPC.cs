@@ -10,7 +10,6 @@ public class NPC : Interactable
     public bool trader;
     public Item[] items;
 
-
     public override void Interact()
     {
         Dialogues.Instance.AddNewDialog(lines, npcName, trader, qGiver);
@@ -18,8 +17,7 @@ public class NPC : Interactable
         {
             foreach (Item item in items)
             {
-                bool added = Shop.instance.Add(item);
-                if (added) Debug.Log("Item added to shop");
+                Shop.instance.Add(item);
             }
         }
         base.Interact();
