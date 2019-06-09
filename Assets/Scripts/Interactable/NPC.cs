@@ -16,9 +16,10 @@ public class NPC : Interactable
         Dialogues.Instance.AddNewDialog(lines, npcName, trader, qGiver);
         if (trader)
         {
-            foreach(Item item in items)
+            foreach (Item item in items)
             {
-                Shop.instance.Add(item);
+                bool added = Shop.instance.Add(item);
+                if (added) Debug.Log("Item added to shop");
             }
         }
         base.Interact();

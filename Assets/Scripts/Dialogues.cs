@@ -24,8 +24,9 @@ public class Dialogues : MonoBehaviour
 
         continueButton.onClick.AddListener(delegate { ContinueDial(); });
         dialoguePanel.SetActive(false);
+        dialogueIndex = 0;
 
-        if(Instance != null && Instance != this)
+        if (Instance != null && Instance != this)
         {
             Destroy(gameObject);
         }
@@ -37,20 +38,28 @@ public class Dialogues : MonoBehaviour
 
     public void AddNewDialog(string[] lines, string name, bool trader, bool qGiver)
     {
-        dialogueIndex = 0;
+        for (int i = 0; i < Shop.instance.items.Count; i++)
+        {
+            Shop.instance.Remove(Shop.instance.items[i]);
+        }
         dialogueLines = new List<string>(lines.Length);
         dialogueLines.AddRange(lines);
         this.npcName = name;
         this.trader = trader;
         this.qGiver = qGiver;
-        dialoguePanel.transform.Find("ButtonField").Find("Continue").Find("Text").GetComponent<Text>().text = "Continue";
+        if (dialogueIndex < dialogueLines.Count - 1)
+        {
+            dialoguePanel.transform.Find("ButtonField").Find("Continue").Find("Text").GetComponent<Text>().text = "Continue";
+            dialoguePanel.transform.Find("ButtonField").Find("Shop").GetComponent<Button>().interactable = false;
+            dialoguePanel.transform.Find("ButtonField").Find("Quest").GetComponent<Button>().interactable = false;
+        }
+        
         CreateDialogue();
     }
 
     public void CreateDialogue()
     {
-        dialoguePanel.transform.Find("ButtonField").Find("Quest").GetComponent<Button>().interactable = false;
-        dialoguePanel.transform.Find("ButtonField").Find("Shop").GetComponent<Button>().interactable = false;
+        
         dialogueText.text = dialogueLines[dialogueIndex];
         nameText.text = npcName;
         dialoguePanel.SetActive(true);
@@ -74,7 +83,6 @@ public class Dialogues : MonoBehaviour
         else
         {
             dialoguePanel.SetActive(false);
-
         }
     }
 }

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
+    public bool wear = true;
     #region Singleton
     public static Inventory instance;
 

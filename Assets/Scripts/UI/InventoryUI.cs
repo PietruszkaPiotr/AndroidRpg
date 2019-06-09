@@ -25,6 +25,7 @@ public class InventoryUI : MonoBehaviour
     public Sprite defaultManaPot;
     public Sprite defaultAttackSprite;
     public Text gold;
+    public Text[] invPanel;
     Inventory inventory;
     SpellBook spellList;
     EquipmentManager equipment;
@@ -127,6 +128,8 @@ public class InventoryUI : MonoBehaviour
         for (int i = 0; i < 4; i++) {
             infoButton[i].SetActive(true);
         }
+        invPanel[0].text = "Wear";
+        invPanel[1].text = "Don't wear";
         inventoryUI.SetActive(true);
         equipmentUI.SetActive(true);
         attackButton.SetActive(false);
@@ -138,6 +141,7 @@ public class InventoryUI : MonoBehaviour
         StatsUI.SetActive(false);
         TreeUI.SetActive(false);
         SpellBookUI.SetActive(false);
+        Inventory.instance.wear = true;
         gold.text = PlayerManager.instance.player.GetComponent<PlayerStats>().gold.ToString();
         PlayerManager.instance.player.GetComponent<PlayerStats>().UpdateUI();
     }
@@ -160,6 +164,7 @@ public class InventoryUI : MonoBehaviour
         TreeUI.SetActive(false);
         SpellBookUI.SetActive(false);
         ShopUI.SetActive(false);
+        
         PlayerManager.instance.player.GetComponent<PlayerStats>().UpdateUI();
     }
     public void ShowStats()
@@ -197,6 +202,8 @@ public class InventoryUI : MonoBehaviour
             spellButton[i].SetActive(false);
         for (int i = 0; i < 4; i++)
             infoButton[i].SetActive(true);
+        invPanel[0].text = "Sell";
+        invPanel[1].text = "Don't sell";
         inventoryUI.SetActive(true);
         ShopUI.SetActive(true);
         attackButton.SetActive(false);
@@ -205,6 +212,8 @@ public class InventoryUI : MonoBehaviour
         HealthBar.SetActive(false);
         ManaBar.SetActive(false);
         ExpBar.SetActive(false);
+        Inventory.instance.wear = false;
+        gold.text = PlayerManager.instance.player.GetComponent<PlayerStats>().gold.ToString();
     }
 
     public void UseHealPot()
