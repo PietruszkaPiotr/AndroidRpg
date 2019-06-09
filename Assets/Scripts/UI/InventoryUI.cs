@@ -140,7 +140,6 @@ public class InventoryUI : MonoBehaviour
         TreeUI.SetActive(false);
         SpellBookUI.SetActive(false);
         inventory.wear = true;
-        Debug.Log(Inventory.instance.wear);
         gold.text = PlayerManager.instance.player.GetComponent<PlayerStats>().gold.ToString();
         PlayerManager.instance.player.GetComponent<PlayerStats>().UpdateUI();
     }
