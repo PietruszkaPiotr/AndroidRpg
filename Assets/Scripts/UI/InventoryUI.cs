@@ -143,12 +143,11 @@ public class InventoryUI : MonoBehaviour
     }
     void Hide()
     {
-        for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < 4; i++) 
             spellButton[i].SetActive(true);
-        }
-        for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < 4; i++) 
             infoButton[i].SetActive(false);
-        }
+
         inventoryUI.SetActive(false);
         attackButton.SetActive(true);
         equipmentUI.SetActive(false);
@@ -194,6 +193,10 @@ public class InventoryUI : MonoBehaviour
 
     public void ShowShop()
     {
+        for (int i = 0; i < 4; i++)
+            spellButton[i].SetActive(false);
+        for (int i = 0; i < 4; i++)
+            infoButton[i].SetActive(true);
         inventoryUI.SetActive(true);
         ShopUI.SetActive(true);
         attackButton.SetActive(false);
