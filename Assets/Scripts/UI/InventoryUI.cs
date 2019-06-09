@@ -5,6 +5,7 @@ public class InventoryUI : MonoBehaviour
 {
     public Transform itemsParent;
     public Transform spellsParent;
+    public Transform shopParent;
     public GameObject inventoryUI;
     public GameObject inventoryButton;
     public GameObject attackButton;
@@ -19,15 +20,19 @@ public class InventoryUI : MonoBehaviour
     public GameObject StatsUI;
     public GameObject TreeUI;
     public GameObject SpellBookUI;
+    public GameObject ShopUI;
     public Sprite defaultHealPot;
     public Sprite defaultManaPot;
     public Sprite defaultAttackSprite;
+    public Text gold;
     Inventory inventory;
     SpellBook spellList;
     EquipmentManager equipment;
+    Shop shop;
     InventorySlot[] slots;
     SpellSlot[] spellSlots;
     EqtSlot[] eqSlots;
+    ShopSlot[] shopSlot;
     // Start is called before the first frame update
     void Start()
     {
@@ -39,6 +44,9 @@ public class InventoryUI : MonoBehaviour
         spellSlots = spellsParent.GetComponentsInChildren<SpellSlot>();
         equipment = EquipmentManager.instance;
         equipment.onEquipmentChanged += UpdateAttackIcon;
+        shop = Shop.instance;
+        shop.onItemChangedCallback += UpdateTUI;
+        shopSlot = shopParent.GetComponentsInChildren<ShopSlot>();
     }
 
     void UpdateAttackIcon(Equipment newItem, Equipment oldItem)
@@ -86,6 +94,20 @@ public class InventoryUI : MonoBehaviour
             }
         }
     }
+    void UpdateTUI()
+    {
+        for (int i = 0; i < shopSlot.Length; i++)
+        {
+            if (i < shop.items.Count)
+            {
+                shopSlot[i].AddItem(shop.items[i]);
+            }
+            else
+            {
+                shopSlot[i].ClearSlot();
+            }
+        }
+    }
 
 
     void UpdateEq()
@@ -116,6 +138,7 @@ public class InventoryUI : MonoBehaviour
         StatsUI.SetActive(false);
         TreeUI.SetActive(false);
         SpellBookUI.SetActive(false);
+        gold.text = PlayerManager.instance.player.GetComponent<PlayerStats>().gold.ToString();
         PlayerManager.instance.player.GetComponent<PlayerStats>().UpdateUI();
     }
     void Hide()
@@ -137,6 +160,7 @@ public class InventoryUI : MonoBehaviour
         ExpBar.SetActive(true);
         TreeUI.SetActive(false);
         SpellBookUI.SetActive(false);
+        ShopUI.SetActive(false);
         PlayerManager.instance.player.GetComponent<PlayerStats>().UpdateUI();
     }
     public void ShowStats()
@@ -166,6 +190,18 @@ public class InventoryUI : MonoBehaviour
         TreeUI.SetActive(false);
         SpellBookUI.SetActive(true);
         PlayerManager.instance.player.GetComponent<PlayerStats>().UpdateUI();
+    }
+
+    public void ShowShop()
+    {
+        inventoryUI.SetActive(true);
+        ShopUI.SetActive(true);
+        attackButton.SetActive(false);
+        HealthPot.SetActive(false);
+        ManaPot.SetActive(false);
+        HealthBar.SetActive(false);
+        ManaBar.SetActive(false);
+        ExpBar.SetActive(false);
     }
 
     public void UseHealPot()

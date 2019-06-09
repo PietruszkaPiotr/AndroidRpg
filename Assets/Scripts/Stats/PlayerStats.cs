@@ -13,6 +13,8 @@ public class PlayerStats : CharacterStats
     public int avaiblePoints;
     public int skillPoints;
 
+    public int gold;
+
     public Spell[] spellList;
     private int whichSlot;
     public void whichSpell(int i)
