@@ -265,17 +265,6 @@ public class PlayerStats : CharacterStats
 
             skillPoint.text = skillPoints.ToString();
             goldT.text = gold.ToString();
-
-            if (!Inventory.instance.wear)
-            {
-                invPanel[0].text = "Sell";
-                invPanel[1].text = "Don't sell";
-            }
-            if (Inventory.instance.wear)
-            {
-                invPanel[0].text = "Equip";
-                invPanel[1].text = "Don't equip";
-            }
         }
         maxHealth = startHP + condition.GetValue() * 10 + level * 5;
         maxMana = startMana + wisdom.GetValue() * 10;
