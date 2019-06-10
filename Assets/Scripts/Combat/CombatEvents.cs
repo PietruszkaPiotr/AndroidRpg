@@ -9,7 +9,10 @@ public class CombatEvents : MonoBehaviour
 
     public static void EnemyDied(EnemyStats enemy)
     {
-        if(OnEnemyDeath != null)
+        if (OnEnemyDeath != null)
+        {
+            Debug.Log("Weszło do EnemyDied");
             OnEnemyDeath(enemy);
+        }
     }
 }

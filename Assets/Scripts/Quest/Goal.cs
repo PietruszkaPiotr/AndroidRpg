@@ -25,7 +25,7 @@ public class Goal
 
     public void Complete()
     {
-        Quest.Check();
         Completed = true;
+        Quest.Check();
     }
 }
