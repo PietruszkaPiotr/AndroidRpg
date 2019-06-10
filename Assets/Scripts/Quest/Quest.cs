@@ -10,6 +10,7 @@ public class Quest : MonoBehaviour
     public string Description { get; set; }
     public int ExperienceReward { get; set; }
     public Item ItemReward { get; set; }
+    public int GoldReward { get; set; }
     public bool Completed { get; set; }
 
     public void Check()
