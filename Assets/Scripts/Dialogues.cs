@@ -62,7 +62,7 @@ public class Dialogues : MonoBehaviour
 
     public void ContinueDial()
     {
-        if (dialogueIndex < dialogueLines.Count-1)
+        if (dialogueIndex < dialogueLines.Count - 1)
         {
             if (dialogueIndex == dialogueLines.Count - 2)
             {
@@ -84,5 +84,10 @@ public class Dialogues : MonoBehaviour
             }
             dialoguePanel.SetActive(false);
         }
+    }
+    public void UpdateShop(GameObject npc)
+    {
+        if(!Inventory.instance.wear)
+            npc.transform.Find(npcName).GetComponent<NPC>().items = Shop.instance.items.ToArray();
     }
 }

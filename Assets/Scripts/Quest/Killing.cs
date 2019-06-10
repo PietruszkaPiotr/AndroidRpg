@@ -19,10 +19,10 @@ public class Killing : Goal
     public override void Init()
     {
         base.Init();
-        Interactable enemy = contr.focus;
+        CombatEvents.OnEnemyDeath += Died;
     }
 
-    void Died(Enemy enemy)
+    void Died(EnemyStats enemy)
     {
         if(enemy.ID == this.EnemyID)
         {

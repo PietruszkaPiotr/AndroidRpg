@@ -162,7 +162,7 @@ public class InventoryUI : MonoBehaviour
         TreeUI.SetActive(false);
         SpellBookUI.SetActive(false);
         ShopUI.SetActive(false);
-        
+        inventory.wear = true;
         PlayerManager.instance.player.GetComponent<PlayerStats>().UpdateUI();
     }
     public void ShowStats()
