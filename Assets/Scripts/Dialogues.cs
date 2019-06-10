@@ -38,10 +38,6 @@ public class Dialogues : MonoBehaviour
 
     public void AddNewDialog(string[] lines, string name, bool trader, bool qGiver)
     {
-        for (int i = 0; i < Shop.instance.items.Count; i++)
-        {
-            Shop.instance.Remove(Shop.instance.items[i]);
-        }
         dialogueLines = new List<string>(lines.Length);
         dialogueLines.AddRange(lines);
         this.npcName = name;
@@ -59,7 +55,6 @@ public class Dialogues : MonoBehaviour
 
     public void CreateDialogue()
     {
-        
         dialogueText.text = dialogueLines[dialogueIndex];
         nameText.text = npcName;
         dialoguePanel.SetActive(true);
@@ -67,7 +62,7 @@ public class Dialogues : MonoBehaviour
 
     public void ContinueDial()
     {
-        if(dialogueIndex < dialogueLines.Count-1)
+        if (dialogueIndex < dialogueLines.Count-1)
         {
             if (dialogueIndex == dialogueLines.Count - 2)
             {
@@ -82,6 +77,11 @@ public class Dialogues : MonoBehaviour
         }
         else
         {
+            int count = Shop.instance.items.Count;
+            for (int i = 0; i < count; i++)
+            {
+                Shop.instance.Remove(Shop.instance.items[0]);
+            }
             dialoguePanel.SetActive(false);
         }
     }

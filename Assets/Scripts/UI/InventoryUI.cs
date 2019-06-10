@@ -209,7 +209,6 @@ public class InventoryUI : MonoBehaviour
         ManaBar.SetActive(false);
         ExpBar.SetActive(false);
         inventory.wear = false;
-        Debug.Log(Inventory.instance.wear);
         gold.text = PlayerManager.instance.player.GetComponent<PlayerStats>().gold.ToString();
         PlayerManager.instance.player.GetComponent<PlayerStats>().UpdateUI();
     }

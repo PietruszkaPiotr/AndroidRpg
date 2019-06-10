@@ -235,7 +235,6 @@ public class PlayerStats : CharacterStats
     public Text mArmor;
     public Text skillPoint;
     public Text goldT;
-    public Text[] invPanel;
 
     private int maxpoints = 10;
     protected int[] stats = { 8, 8, 8, 8, 8, 8 };
