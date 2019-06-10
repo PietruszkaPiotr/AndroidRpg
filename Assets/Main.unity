@@ -28419,7 +28419,7 @@ PrefabInstance:
     - target: {fileID: 9500000, guid: 79b6185c31b269a4fa6764a3b755f625, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: 78fb20ffa12fe284eb7b16d786e468b9, type: 2}
+      objectReference: {fileID: 9100000, guid: 019711461ec520941bee83c7d8569ccc, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 79b6185c31b269a4fa6764a3b755f625, type: 3}
 --- !u!1 &1474808198
@@ -38408,9 +38408,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1911562129}
+  - component: {fileID: 1911562130}
+  - component: {fileID: 1911562131}
   m_Layer: 0
   m_Name: Furry Girl
-  m_TagString: Untagged
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -38423,13 +38425,52 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1911562128}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -907.9, y: -649.32, z: 398.03}
+  m_LocalPosition: {x: -907.9, y: -649.28, z: 398.03}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 160753256}
   m_Father: {fileID: 688355592}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1911562130
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1911562128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51c9b1825cc32f949bb02714275c8c70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 3
+  interactionTransform: {fileID: 1911562129}
+  lines:
+  - 'Hi, I''m Furry Girl... '
+  - You saw this ball? He is cuuuteee
+  bQuestLines: []
+  dQuestLines: 
+  aQuestLines: 
+  npcName: 
+  qGiver: 0
+  trader: 0
+  items: []
+  questName: 
+--- !u!136 &1911562131
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1911562128}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.42836118
+  m_Height: 2.5755408
+  m_Direction: 1
+  m_Center: {x: -0.14999998, y: 0.5637115, z: -1.74}
 --- !u!1 &1914585974
 GameObject:
   m_ObjectHideFlags: 0
