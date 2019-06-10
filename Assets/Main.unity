@@ -7419,6 +7419,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: samuzai_animation_ok
       objectReference: {fileID: 0}
+    - target: {fileID: -5716681864270162303, guid: e156495aa9aa3424d85dac51d5fdbd21,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: e156495aa9aa3424d85dac51d5fdbd21,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7472,11 +7477,6 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: e156495aa9aa3424d85dac51d5fdbd21,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -5716681864270162303, guid: e156495aa9aa3424d85dac51d5fdbd21,
-        type: 3}
-      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -23358,7 +23358,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a58b1bb89fc28814f9c0d8ba6dd68ab5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 5
+  radius: 3
   interactionTransform: {fileID: 1230908225}
 --- !u!114 &1230908229
 MonoBehaviour:
