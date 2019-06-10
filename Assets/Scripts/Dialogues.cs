@@ -53,8 +53,8 @@ public class Dialogues : MonoBehaviour
         dialogueLines = new List<string>(lines.Length);
         dialogueLines.AddRange(lines);
         bQuestDialogue.AddRange(bQuestLines);
-        dQuestDialogue.AddRange(dQuestLines);
-        aQuestDialogue.AddRange(aQuestLines);
+        //dQuestDialogue.AddRange(dQuestLines);
+        //aQuestDialogue.AddRange(aQuestLines);
         this.npcName = name;
         this.trader = trader;
         this.qGiver = qGiver;
@@ -84,7 +84,7 @@ public class Dialogues : MonoBehaviour
 
     public void ContinueDial()
     {
-        if()
+        //if()
         if (dialogueIndex < dialogueLines.Count - 1)
         {
             if (dialogueIndex == dialogueLines.Count - 2)
