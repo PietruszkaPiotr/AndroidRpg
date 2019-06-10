@@ -18,12 +18,13 @@ public class Quest : MonoBehaviour
         Completed = Goals.All(g => g.Completed);
     }
 
-    void GiveReward()
+    public void GiveReward()
     {
         if(ItemReward != null)
         {
             Inventory.instance.Add(ItemReward);
-            PlayerManager.instance.player.GetComponent<PlayerStats>().AddExp(ExperienceReward);
         }
+        PlayerManager.instance.player.GetComponent<PlayerStats>().AddExp(ExperienceReward);
+        PlayerManager.instance.player.GetComponent<PlayerStats>().gold += GoldReward;
     }
 }

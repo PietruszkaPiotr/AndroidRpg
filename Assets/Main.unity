@@ -19896,15 +19896,15 @@ MonoBehaviour:
   - A quest? You want me to give you a quest? Hmm...
   - Okay, fine. Go kill that skeleton over the bridge.
   - You will recieve your reward after.
-  dQuestLines:
-  - What do you want to know? That's an easy quest. Just go and kill it already.
-  aQuestLines:
-  - Bravo. You killed it. Here, take it.
+  dQuestLines: What are you still doin' here? That's an easy quest. Go and kill it
+    already.
+  aQuestLines: Bravo. You killed it. I've never been so pround of you.
   npcName: Ball Man
   qGiver: 1
   trader: 1
   items:
   - {fileID: 11400000, guid: cf813f4e3f266a049825926be4948c12, type: 2}
+  questName: KillSkeleton
 --- !u!135 &1058144505
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -29509,9 +29509,7 @@ MonoBehaviour:
   dialoguePanel: {fileID: 382536081}
   npcName: 
   dialogueLines: []
-  bQuestDialogue: []
-  dQuestDialogue: []
-  aQuestDialogue: []
+  quests: {fileID: 1639690597}
 --- !u!4 &1551055413
 Transform:
   m_ObjectHideFlags: 0
