@@ -8,7 +8,7 @@ public class EnemyStats : CharacterStats
     public int giveExp;
     public override void Die()
     {
-        PlayerManager.instance.player.GetComponent<PlayerStats>().AddExp(giveExp);
+        PlayerManager.instance.player.GetComponent<PlayerStats>().AddExp(giveExp * level / 10);
         CombatEvents.EnemyDied(this);
         base.Die();
         

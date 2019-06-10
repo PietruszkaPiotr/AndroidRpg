@@ -5,6 +5,7 @@ using UnityEngine;
 public class NPC : Interactable
 {
     public string[] lines;
+    public string[] questLines;
     public string npcName;
     public bool qGiver;
     public bool trader;
@@ -12,7 +13,7 @@ public class NPC : Interactable
 
     public override void Interact()
     {
-        Dialogues.Instance.AddNewDialog(lines, npcName, trader, qGiver);
+        Dialogues.Instance.AddNewDialog(lines, questLines, npcName, trader, qGiver);
         if (trader)
         {
             foreach (Item item in items)

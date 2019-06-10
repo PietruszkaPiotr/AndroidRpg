@@ -14,17 +14,25 @@ public class Dialogues : MonoBehaviour
     Text dialogueText, nameText;
     int dialogueIndex;
     bool trader;
+
+    //Quest
     bool qGiver;
+    public List<string> questDialogue = new List<string>();
+    Button questButton;
+    int questIndex;
 
     private void Awake()
     {
         continueButton = dialoguePanel.transform.Find("ButtonField").Find("Continue").GetComponent<Button>();
         dialogueText = dialoguePanel.transform.Find("TextField").Find("TextPanel").Find("TalkText").GetComponent<Text>();
         nameText = dialoguePanel.transform.Find("NamePanel").Find("NameText").GetComponent<Text>();
+        questButton = dialoguePanel.transform.Find("ButtonField").Find("Quest").GetComponent<Button>();
 
         continueButton.onClick.AddListener(delegate { ContinueDial(); });
+        questButton.onClick.AddListener(delegate { QuestDial(); });
         dialoguePanel.SetActive(false);
         dialogueIndex = 0;
+        questIndex = 0;
 
         if (Instance != null && Instance != this)
         {
@@ -36,10 +44,11 @@ public class Dialogues : MonoBehaviour
         }
     }
 
-    public void AddNewDialog(string[] lines, string name, bool trader, bool qGiver)
+    public void AddNewDialog(string[] lines, string[] questLines, string name, bool trader, bool qGiver)
     {
         dialogueLines = new List<string>(lines.Length);
         dialogueLines.AddRange(lines);
+        questDialogue.AddRange(questLines);
         this.npcName = name;
         this.trader = trader;
         this.qGiver = qGiver;
@@ -74,6 +83,33 @@ public class Dialogues : MonoBehaviour
             }
             dialogueIndex++;
             dialogueText.text = dialogueLines[dialogueIndex];
+        }
+        else
+        {
+            int count = Shop.instance.items.Count;
+            for (int i = 0; i < count; i++)
+            {
+                Shop.instance.Remove(Shop.instance.items[0]);
+            }
+            dialoguePanel.SetActive(false);
+        }
+    }
+
+    public void QuestDial()
+    {
+        dialoguePanel.transform.Find("ButtonField").Find("Continue").Find("Text").GetComponent<Text>().text = "Continue";
+        if (questIndex < questDialogue.Count - 1)
+        {
+            if (questIndex == questDialogue.Count - 2)
+            {
+                dialoguePanel.transform.Find("ButtonField").Find("Continue").Find("Text").GetComponent<Text>().text = "Exit";
+                if (trader)
+                    dialoguePanel.transform.Find("ButtonField").Find("Shop").GetComponent<Button>().interactable = true;
+                if (qGiver)
+                    dialoguePanel.transform.Find("ButtonField").Find("Quest").GetComponent<Button>().interactable = true;
+            }
+            questIndex++;
+            dialogueText.text = questDialogue[questIndex];
         }
         else
         {
