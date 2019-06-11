@@ -38792,12 +38792,12 @@ MonoBehaviour:
   radius: 3
   interactionTransform: {fileID: 1911562129}
   lines:
-  - 'Hi, I''m Furry Girl... '
-  - You saw this ball? He is cuuuteee
+  - Hi, I'm Neko-chan...
+  - You saw this ball? He is soooo cuuuteee
   bQuestLines: []
   dQuestLines: 
   aQuestLines: 
-  npcName: 
+  npcName: Neko-chan
   qGiver: 0
   trader: 0
   items: []
