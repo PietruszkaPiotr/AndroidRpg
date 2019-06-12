@@ -11,7 +11,6 @@ public class CombatEvents : MonoBehaviour
     {
         if (OnEnemyDeath != null)
         {
-            Debug.Log("Weszło do EnemyDied");
             OnEnemyDeath(enemy);
         }
     }
