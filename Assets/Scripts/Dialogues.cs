@@ -12,7 +12,7 @@ public class Dialogues : MonoBehaviour
 
     Button continueButton;
     Text dialogueText, nameText;
-    int dialogueIndex;
+    int dialogueIndex=0;
     bool trader;
 
     //Quest
@@ -53,7 +53,7 @@ public class Dialogues : MonoBehaviour
         }
     }
 
-    public void AddNewDialog(string[] lines, string[] bQuestLines, string dQuestLines, string aQuestLines, string name, bool trader, bool qGiver, string questName)
+    public void AddNewDialog(string[] lines, string[] bQuestLines, string dQuestLines, string aQuestLines, string name, bool trader, bool qGiver, string questName, bool interacted)
     {
         dialogueLines = new List<string>(lines.Length);
         dialogueLines.AddRange(lines);
@@ -64,6 +64,10 @@ public class Dialogues : MonoBehaviour
         this.trader = trader;
         this.qGiver = qGiver;
         this.questType = questName;
+        if (!interacted)
+            dialogueIndex = 0;
+        else
+            dialogueIndex = dialogueLines.Count - 1;
         if (dialogueIndex < dialogueLines.Count - 1)
         {
             dialoguePanel.transform.Find("ButtonField").Find("Continue").Find("Text").GetComponent<Text>().text = "Continue";

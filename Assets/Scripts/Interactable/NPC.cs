@@ -14,10 +14,12 @@ public class NPC : Interactable
     public Item[] items;
     public string questName;
 
+    private bool interacted = false;
+
 
     public override void Interact()
     {
-        Dialogues.Instance.AddNewDialog(lines, bQuestLines, dQuestLines, aQuestLines, npcName, trader, qGiver, questName);
+        Dialogues.Instance.AddNewDialog(lines, bQuestLines, dQuestLines, aQuestLines, npcName, trader, qGiver, questName, interacted);
         if (trader)
         {
             foreach (Item item in items)
@@ -25,6 +27,6 @@ public class NPC : Interactable
                 Shop.instance.Add(item);
             }
         }
-        base.Interact();
+        interacted = true;
     }
 }
